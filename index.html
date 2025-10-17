@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Avaliação da Consultoria | Action Day Digital</title>
+
+  <!-- Importa o CSS com o estilo lilás oficial -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- LOGO NO TOPO -->
+    <div class="logo">
+      <!-- Substitua o caminho abaixo se o arquivo da logo estiver em outra pasta -->
+      <img src="logo.png" alt="Logo Action Day Digital">
+    </div>
+
+    <!-- TÍTULO E INTRODUÇÃO -->
+    <h1>🧭 Avaliação da Consultoria</h1>
+    <p>Queremos saber como foi sua experiência! Suas respostas nos ajudam a melhorar continuamente nossos atendimentos.</p>
+
+    <!-- FORMULÁRIO PRINCIPAL -->
+    <form id="consultoriaForm">
+      
+      <!-- PERGUNTA 1 -->
+      <div class="question">
+        <label>1️. As orientações da consultoria te ajudaram a enxergar com mais clareza os principais desafios e oportunidades do seu negócio?</label>
+        <div class="options">
+          <label><input type="radio" name="q1" value="Sim, com certeza" required> Sim, com certeza</label>
+          <label><input type="radio" name="q1" value="Parcialmente"> Parcialmente</label>
+          <label><input type="radio" name="q1" value="Ainda não totalmente"> Ainda não totalmente</label>
+          <label><input type="radio" name="q1" value="Não"> Não</label>
+        </div>
+        <textarea name="q1_obs" placeholder="Espaço para escrever (opcional)"></textarea>
+      </div>
+
+      <!-- PERGUNTA 2 -->
+      <div class="question">
+        <label>2️. Após a consultoria, você sente que está mais preparado para tomar decisões estratégicas no seu negócio?</label>
+        <div class="options">
+          <label><input type="radio" name="q2" value="Sim" required> Sim</label>
+          <label><input type="radio" name="q2" value="Parcialmente"> Parcialmente</label>
+          <label><input type="radio" name="q2" value="Ainda não"> Ainda não</label>
+        </div>
+        <textarea name="q2_obs" placeholder="Espaço para escrever (opcional)"></textarea>
+      </div>
+
+      <!-- PERGUNTA 3 (ESCALA DE 1 A 10) -->
+      <div class="question">
+        <label>3️. O quanto você acredita que as orientações do consultor contribuíram para gerar novas ideias e melhorias no seu negócio?</label>
+        <div class="scale">
+          <span>1</span>
+          <input type="radio" name="q3" value="1" required>
+          <input type="radio" name="q3" value="2">
+          <input type="radio" name="q3" value="3">
+          <input type="radio" name="q3" value="4">
+          <input type="radio" name="q3" value="5">
+          <input type="radio" name="q3" value="6">
+          <input type="radio" name="q3" value="7">
+          <input type="radio" name="q3" value="8">
+          <input type="radio" name="q3" value="9">
+          <input type="radio" name="q3" value="10">
+          <span>10</span>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 4 -->
+      <div class="question">
+        <label>4️. O que você considera que mais agregou valor para você durante a consultoria?</label>
+        <textarea name="q4" placeholder="Espaço para escrever (opcional)"></textarea>
+      </div>
+
+      <!-- PERGUNTA 5 -->
+      <div class="question">
+        <label>5️. O que você acredita que poderíamos aprimorar para tornar a consultoria ainda mais eficaz?</label>
+        <textarea name="q5" placeholder="Espaço para escrever (opcional)"></textarea>
+      </div>
+
+      <!-- CAMPOS OCULTOS PARA COLETAR UTMs -->
+      <input type="hidden" name="utm_source" id="utm_source">
+      <input type="hidden" name="utm_medium" id="utm_medium">
+      <input type="hidden" name="utm_campaign" id="utm_campaign">
+      <input type="hidden" name="utm_content" id="utm_content">
+      <input type="hidden" name="utm_term" id="utm_term">
+
+      <!-- BOTÃO DE ENVIO -->
+      <button type="submit">Enviar Respostas</button>
+    </form>
+
+    <!-- MENSAGEM DE RETORNO AO USUÁRIO -->
+    <p class="feedback" id="feedbackMsg"></p>
+  </div>
+
+  <!-- BIBLIOTECA DO EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <!-- SCRIPT PRINCIPAL (LÓGICA JS DO FORMULÁRIO) -->
+  <script src="script.js"></script>
+</body>
+</html>

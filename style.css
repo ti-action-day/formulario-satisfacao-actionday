@@ -1,0 +1,126 @@
+/* === ESTILO BASE === */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F8F6FB; /* fundo muito suave lilás claro */
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  margin: 0;
+}
+
+/* === CONTAINER PRINCIPAL === */
+.container {
+  background: #FFFFFF;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 720px;
+  width: 100%;
+  text-align: left;
+}
+
+/* === LOGO === */
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 320px; /* ajuste o tamanho conforme desejar */
+  height: auto;
+}
+
+/* === TÍTULO E DESCRIÇÃO === */
+h1 {
+  color: #592C82; /* lilás oficial */
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #4A4A4A;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* === BLOCO DE PERGUNTA === */
+.question {
+  margin-bottom: 25px;
+}
+
+.question label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+  color: #592C82; /* destaque lilás nas perguntas */
+}
+
+/* === OPÇÕES === */
+.options label {
+  display: block;
+  margin: 6px 0;
+  cursor: pointer;
+  color: #2E2B2E;
+}
+
+/* === TEXTAREAS === */
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #D9CFE8;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  margin-top: 8px;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: #592C82;
+  outline: none;
+}
+
+/* === ESCALA DE 1 A 10 === */
+.scale {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.scale input[type="radio"] {
+  margin: 0 4px;
+  accent-color: #592C82; /* radios na cor lilás */
+}
+
+/* === BOTÃO DE ENVIO === */
+button {
+  background-color: #592C82;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+  display: block;
+  margin: 20px auto 0;
+}
+
+button:hover {
+  background-color: #452165; /* tom mais escuro ao passar o mouse */
+  transform: scale(1.03);
+}
+
+/* === MENSAGEM DE FEEDBACK === */
+.feedback {
+  margin-top: 20px;
+  font-weight: 500;
+  color: #592C82;
+  text-align: center;
+}
