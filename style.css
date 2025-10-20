@@ -1,12 +1,13 @@
-/* === ESTILO BASE === */
+/* === BASE GERAL === */
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f6fb;
-  padding: 40px 0;
+  padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
-/* === CONTAINER PRINCIPAL === */
+/* === CONTAINER CENTRAL === */
 .container {
   background: #ffffff;
   padding: 40px;
@@ -14,7 +15,9 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   max-width: 720px;
   width: 90%;
-  margin: 0 auto 60px auto;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
 }
 
 /* === LOGO === */
@@ -31,7 +34,6 @@ body {
   max-width: 90%;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
 
 .logo p {
@@ -40,7 +42,7 @@ body {
   font-weight: 500;
 }
 
-/* === TÍTULOS E TEXTOS === */
+/* === TÍTULOS === */
 h1 {
   color: #592c82;
   font-size: 26px;
@@ -58,16 +60,10 @@ p {
 /* === PERGUNTAS === */
 .question {
   margin-bottom: 30px;
+  position: relative;
 }
 
-.question label {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 10px;
-  color: #592c82;
-}
-
-/* === ESCALA VISUAL (0–10 e 0–5) === */
+/* === ESCALA (0–10) === */
 .scale {
   display: flex;
   justify-content: center;
@@ -98,13 +94,17 @@ p {
   transition: all 0.3s ease;
 }
 
-/* === HOVER === */
+/* === INTERAÇÃO === */
 .scale label:hover span {
   transform: scale(1.07);
-  filter: brightness(1.15);
 }
 
-/* === ESCALA 0–10 === */
+.scale input:checked + span {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+/* === CORES ESCALA === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
@@ -136,35 +136,7 @@ p {
   color: #fff;
 }
 
-/* === ESCALA FÁBIO (0–5) === */
-.fabioScale input[value="1"]:checked + span {
-  background-color: #e53935;
-  color: #fff;
-}
-.fabioScale input[value="2"]:checked + span {
-  background-color: #fb8c00;
-  color: #fff;
-}
-.fabioScale input[value="3"]:checked + span {
-  background-color: #fdd835;
-  color: #333;
-}
-.fabioScale input[value="4"]:checked + span {
-  background-color: #81c784;
-  color: #fff;
-}
-.fabioScale input[value="5"]:checked + span {
-  background-color: #43a047;
-  color: #fff;
-}
-
-/* === INTERAÇÃO SELEÇÃO === */
-.scale input:checked + span {
-  transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-}
-
-/* === TEXTAREAS === */
+/* === TEXTAREA === */
 textarea {
   width: 100%;
   padding: 10px;
@@ -174,7 +146,6 @@ textarea {
   font-family: inherit;
   font-size: 14px;
   margin-top: 8px;
-  transition: border-color 0.3s;
 }
 
 textarea:focus {
@@ -218,29 +189,16 @@ button:hover {
   text-align: center;
 }
 
-/* === LEGENDA === */
-.legend {
-  list-style: none;
-  padding-left: 0;
-  font-size: 13px;
-  color: #4a4a4a;
-  margin-top: 10px;
-}
-
-.legend li {
-  margin: 2px 0;
-}
-
 /* === RODAPÉ === */
 .footer {
   text-align: center;
   padding: 20px 10px;
   background: #f3ecfa;
   border-top: 2px solid #e2d8f0;
-  width: 100%;
   color: #592c82;
   font-size: 14px;
   position: relative;
+  margin-top: 40px;
 }
 
 .footer a {
@@ -253,47 +211,46 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE FINAL === */
+/* === MOBILE FIXO === */
 @media (max-width: 480px) {
+  html, body {
+    height: 100%;
+    overflow: hidden; /* impede rolagem vertical */
+  }
+
   .container {
-    width: 94%;
-    padding: 24px;
-    border-radius: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
   }
 
   .question {
-    position: relative;
-    margin-bottom: 32px;
-    padding-top: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .question label {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: #fff;
-    padding-bottom: 10px;
-  }
-
+  /* só os números rolam */
   .scale {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    white-space: nowrap;
+    justify-content: flex-start;
     padding: 10px 16px;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 16px;
     -webkit-overflow-scrolling: touch;
-    border-radius: 8px;
     background: linear-gradient(90deg, #faf7fd 0%, #ffffff 100%);
+    border-radius: 10px;
   }
 
   .scale::before {
     content: "";
-    flex: 0 0 16px; /* espaço inicial pra o número 0 ou 1 não cortar */
+    flex: 0 0 16px;
   }
 
   .scale label {
@@ -302,13 +259,13 @@ button:hover {
   }
 
   .scale span {
-    width: 46px;
-    height: 46px;
-    font-size: 15px;
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
     border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(89, 44, 130, 0.05);
   }
 
+  /* barra de rolagem leve */
   .scale::-webkit-scrollbar {
     height: 4px;
   }
@@ -316,10 +273,6 @@ button:hover {
   .scale::-webkit-scrollbar-thumb {
     background: #c8b2e3;
     border-radius: 3px;
-  }
-
-  .scale::-webkit-scrollbar-track {
-    background: transparent;
   }
 
   h1 {
@@ -342,11 +295,12 @@ button:hover {
   }
 
   .footer {
+    text-align: center;
+    justify-self: flex-end;
     padding: 16px 20px;
     font-size: 13px;
-  }
-
-  .footer .slogan {
-    font-size: 14px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
   }
 }
