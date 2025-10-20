@@ -113,44 +113,65 @@ textarea:focus {
   display: none;
 }
 
-/* === CORES AO CLICAR === */
+/* === CORES GERAIS PARA ESCALAS 0–10 === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
-  background-color: #e53935;
+  background-color: #e53935; /* Vermelho */
   color: #fff;
   box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
 }
 
 .scale input[value="3"]:checked + span,
 .scale input[value="4"]:checked + span {
-  background-color: #fb8c00;
+  background-color: #fb8c00; /* Laranja */
   color: #fff;
   box-shadow: 0 0 10px rgba(251, 140, 0, 0.5);
 }
 
 .scale input[value="5"]:checked + span,
 .scale input[value="6"]:checked + span {
-  background-color: #fbc02d;
+  background-color: #fbc02d; /* Amarelo */
   color: #fff;
   box-shadow: 0 0 10px rgba(251, 192, 45, 0.5);
 }
 
 .scale input[value="7"]:checked + span,
 .scale input[value="8"]:checked + span {
-  background-color: #43a047;
+  background-color: #43a047; /* Verde claro */
   color: #fff;
   box-shadow: 0 0 10px rgba(67, 160, 71, 0.5);
 }
 
 .scale input[value="9"]:checked + span,
 .scale input[value="10"]:checked + span {
-  background-color: #2e7d32;
+  background-color: #2e7d32; /* Verde forte */
   color: #fff;
   box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
 }
 
-/* === HOVER COLORIDO === */
+/* === CORES PERSONALIZADAS PARA QUESTÃO 4 (1–5) === */
+.question:nth-of-type(4) input[value="1"]:checked + span,
+.question:nth-of-type(4) input[value="2"]:checked + span {
+  background-color: #e53935; /* Vermelho */
+  color: #fff;
+  box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
+}
+
+.question:nth-of-type(4) input[value="3"]:checked + span {
+  background-color: #fbc02d; /* Amarelo */
+  color: #fff;
+  box-shadow: 0 0 10px rgba(251, 192, 45, 0.5);
+}
+
+.question:nth-of-type(4) input[value="4"]:checked + span,
+.question:nth-of-type(4) input[value="5"]:checked + span {
+  background-color: #2e7d32; /* Verde forte */
+  color: #fff;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
+}
+
+/* === HOVER COLORIDO (GERAL) === */
 .scale input[value="0"] + span:hover,
 .scale input[value="1"] + span:hover,
 .scale input[value="2"] + span:hover {
@@ -178,6 +199,24 @@ textarea:focus {
 
 .scale input[value="9"] + span:hover,
 .scale input[value="10"] + span:hover {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+/* === HOVER AJUSTADO PARA QUESTÃO 4 === */
+.question:nth-of-type(4) input[value="1"] + span:hover,
+.question:nth-of-type(4) input[value="2"] + span:hover {
+  background-color: #e53935;
+  color: #fff;
+}
+
+.question:nth-of-type(4) input[value="3"] + span:hover {
+  background-color: #fbc02d;
+  color: #fff;
+}
+
+.question:nth-of-type(4) input[value="4"] + span:hover,
+.question:nth-of-type(4) input[value="5"] + span:hover {
   background-color: #2e7d32;
   color: #fff;
 }
