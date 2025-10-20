@@ -1,13 +1,13 @@
 /* === BASE GERAL === */
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #f8f6fb;
-  padding: 0;
-  margin: 0;
+  color: #333;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
 }
 
 /* === CONTAINER PRINCIPAL === */
@@ -19,9 +19,9 @@ body {
   max-width: 720px;
   width: 90%;
   margin: 40px auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 /* === LOGO === */
@@ -37,7 +37,6 @@ body {
   width: 260px;
   max-width: 90%;
   height: auto;
-  display: block;
 }
 
 .logo p {
@@ -46,7 +45,7 @@ body {
   font-weight: 500;
 }
 
-/* === TÍTULOS E TEXTOS === */
+/* === TÍTULOS === */
 h1 {
   color: #592c82;
   font-size: 26px;
@@ -66,7 +65,7 @@ p {
   margin-bottom: 30px;
 }
 
-/* === ESCALA VISUAL (0–10 e 0–5) === */
+/* === ESCALA === */
 .scale {
   display: flex;
   justify-content: center;
@@ -106,7 +105,7 @@ p {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
 
-/* === CORES DA ESCALA === */
+/* === CORES DOS BOTÕES === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
@@ -155,14 +154,6 @@ textarea:focus {
   outline: none;
 }
 
-/* === OPÇÕES === */
-.options label {
-  display: block;
-  margin: 6px 0;
-  cursor: pointer;
-  color: #2e2b2e;
-}
-
 /* === BOTÃO === */
 button {
   background-color: #592c82;
@@ -173,7 +164,7 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
   display: block;
   margin: 25px auto 0;
 }
@@ -181,14 +172,6 @@ button {
 button:hover {
   background-color: #452165;
   transform: scale(1.03);
-}
-
-/* === FEEDBACK === */
-.feedback {
-  margin-top: 20px;
-  font-weight: 500;
-  color: #592c82;
-  text-align: center;
 }
 
 /* === RODAPÉ === */
@@ -213,42 +196,40 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE (correção final) === */
+/* === MOBILE === */
 @media (max-width: 480px) {
   html, body {
     height: 100%;
-    overflow-y: auto; /* permite rolagem vertical */
+    overflow-y: auto; /* rolagem vertical */
     overflow-x: hidden;
   }
 
   .container {
     min-height: 100vh;
-    padding: 28px 20px;
-    border-radius: 0;
     margin: 0;
+    border-radius: 0;
+    padding: 20px;
     box-shadow: none;
   }
 
-  /* Só os números deslizam horizontalmente */
+  .question {
+    margin-bottom: 28px;
+  }
+
+  /* Escala horizontal rolável */
   .scale {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    white-space: nowrap;
+    overflow-y: hidden;
+    gap: 12px;
+    justify-content: flex-start;
     padding: 10px 16px;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 16px;
     -webkit-overflow-scrolling: touch;
+    background: #fdfcff;
     border-radius: 8px;
-    background: linear-gradient(90deg, #faf7fd 0%, #ffffff 100%);
-  }
-
-  .scale::before {
-    content: "";
-    flex: 0 0 16px;
   }
 
   .scale label {
@@ -257,9 +238,10 @@ button:hover {
   }
 
   .scale span {
-    width: 46px;
-    height: 46px;
-    font-size: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    flex-shrink: 0;
   }
 
   .scale::-webkit-scrollbar {
@@ -279,11 +261,6 @@ button:hover {
     font-size: 14px;
   }
 
-  textarea {
-    margin-top: 10px;
-    font-size: 13px;
-  }
-
   button {
     width: 100%;
     font-size: 15px;
@@ -291,10 +268,8 @@ button:hover {
   }
 
   .footer {
-    position: relative;
-    bottom: 0;
-    padding: 16px 10px;
+    padding: 18px 10px;
     font-size: 13px;
-    margin-top: 20px;
+    margin-top: 40px;
   }
 }
