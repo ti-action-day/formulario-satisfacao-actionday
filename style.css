@@ -1,11 +1,9 @@
-/* === BASE === */
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Roboto', Arial, sans-serif;
+/* === ESTILO BASE === */
+body {
+  font-family: 'Roboto', sans-serif;
   background-color: #f8f6fb;
-  display: flex;
-  flex-direction: column;
+  padding: 40px 0;
+  margin: 0;
 }
 
 /* === CONTAINER PRINCIPAL === */
@@ -16,29 +14,33 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   max-width: 720px;
   width: 90%;
-  margin: 40px auto 0;
-  flex: 1;
-  animation: fadeIn 0.8s ease;
-}
-
-/* === ANIMAÇÃO SUAVE === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  margin: 0 auto 60px auto;
 }
 
 /* === LOGO === */
 .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .logo img {
-  width: 280px;
+  width: 260px;
+  max-width: 90%;
   height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* === TÍTULOS === */
+.logo p {
+  margin-top: 8px;
+  color: #592c82;
+  font-weight: 500;
+}
+
+/* === TÍTULOS E TEXTOS === */
 h1 {
   color: #592c82;
   font-size: 26px;
@@ -48,39 +50,34 @@ h1 {
 
 p {
   color: #4a4a4a;
-  text-align: center;
   margin-bottom: 25px;
   line-height: 1.5;
+  text-align: center;
 }
 
 /* === PERGUNTAS === */
 .question {
   margin-bottom: 30px;
-  animation: fadeIn 0.9s ease;
 }
 
 .question label {
-  color: #592c82;
   font-weight: 600;
   display: block;
   margin-bottom: 10px;
+  color: #592c82;
 }
 
-/* === OPÇÕES DE RESPOSTA === */
-.options label {
-  display: block;
-  margin: 8px 0;
-  color: #2e2b2e;
-  cursor: pointer;
-}
-
-/* === ESCALA NUMÉRICA === */
+/* === ESCALA VISUAL (0–10 e 0–5) === */
 .scale {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 15px;
+}
+
+.scale label {
+  cursor: pointer;
 }
 
 .scale input[type="radio"] {
@@ -91,158 +88,169 @@ p {
   width: 46px;
   height: 46px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  background: #e0e0e0;
-  color: #333;
   font-weight: 600;
   font-size: 15px;
-  transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) inset;
+  background-color: #e0e0e0;
+  color: #333;
+  transition: all 0.3s ease;
 }
 
+/* === HOVER === */
 .scale label:hover span {
   transform: scale(1.07);
-  filter: brightness(1.08);
+  filter: brightness(1.15);
 }
 
-.scale input:checked + span {
-  box-shadow: 0 0 0 3px rgba(89, 44, 130, 0.12);
-}
-
-/* === CORES ESCALA === */
+/* === ESCALA 0–10 === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
-  background: #e53935;
+  background-color: #e53935;
   color: #fff;
 }
 
 .scale input[value="3"]:checked + span,
 .scale input[value="4"]:checked + span {
-  background: #fb8c00;
+  background-color: #ef9a9a;
   color: #fff;
 }
 
 .scale input[value="5"]:checked + span,
 .scale input[value="6"]:checked + span {
-  background: #fdd835;
-  color: #333;
+  background-color: #bdbdbd;
+  color: #fff;
 }
 
 .scale input[value="7"]:checked + span,
 .scale input[value="8"]:checked + span {
-  background: #81c784;
+  background-color: #81c784;
   color: #fff;
 }
 
 .scale input[value="9"]:checked + span,
 .scale input[value="10"]:checked + span {
-  background: #43a047;
+  background-color: #43a047;
   color: #fff;
 }
 
-/* === TEXTAREA === */
+/* === ESCALA FÁBIO (0–5) === */
+.fabioScale input[value="1"]:checked + span {
+  background-color: #e53935;
+  color: #fff;
+}
+.fabioScale input[value="2"]:checked + span {
+  background-color: #fb8c00;
+  color: #fff;
+}
+.fabioScale input[value="3"]:checked + span {
+  background-color: #fdd835;
+  color: #333;
+}
+.fabioScale input[value="4"]:checked + span {
+  background-color: #81c784;
+  color: #fff;
+}
+.fabioScale input[value="5"]:checked + span {
+  background-color: #43a047;
+  color: #fff;
+}
+
+/* === INTERAÇÃO SELEÇÃO === */
+.scale input:checked + span {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+/* === TEXTAREAS === */
 textarea {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #d9cfe8;
-  font-size: 14px;
   resize: vertical;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  margin-top: 15px;
+  font-family: inherit;
+  font-size: 14px;
+  margin-top: 8px;
+  transition: border-color 0.3s;
 }
 
 textarea:focus {
   border-color: #592c82;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(89, 44, 130, 0.12);
+}
+
+/* === OPÇÕES === */
+.options label {
+  display: block;
+  margin: 6px 0;
+  cursor: pointer;
+  color: #2e2b2e;
 }
 
 /* === BOTÃO === */
 button {
-  background: #592c82;
-  color: #fff;
+  background-color: #592c82;
+  color: #ffffff;
   border: none;
   padding: 12px 24px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
   display: block;
   margin: 25px auto 0;
-  transition: background 0.2s ease, transform 0.15s ease;
-  animation: fadeIn 1s ease;
 }
 
 button:hover {
-  background: #452165;
-  transform: translateY(-1px);
+  background-color: #452165;
+  transform: scale(1.03);
 }
 
-button:active {
-  transform: translateY(0);
+/* === FEEDBACK === */
+.feedback {
+  margin-top: 20px;
+  font-weight: 500;
+  color: #592c82;
+  text-align: center;
 }
 
 /* === LEGENDA === */
 .legend {
   list-style: none;
-  padding: 0;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #333;
-  text-align: left;
-  line-height: 1.6;
+  padding-left: 0;
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 10px;
 }
 
 .legend li {
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 /* === RODAPÉ === */
 .footer {
   text-align: center;
-  padding: 20px 40px;
-  background: #fff;
-  border-top: 1px solid #e0d2f3;
+  padding: 20px 10px;
+  background: #f3ecfa;
+  border-top: 2px solid #e2d8f0;
+  width: 100%;
   color: #592c82;
   font-size: 14px;
+  position: relative;
+}
+
+.footer a {
+  color: #592c82;
+  text-decoration: none;
   font-weight: 500;
-  max-width: 720px;
-  width: 100%;
-  margin: -10px auto 20px;
-  border-radius: 0 0 14px 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.footer .slogan {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-/* === RESPONSIVIDADE === */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-    padding: 28px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  p, .question label, textarea {
-    font-size: 14px;
-  }
-
-  .scale span {
-    width: 44px;
-    height: 44px;
-    font-size: 14px;
-  }
+.footer a:hover {
+  text-decoration: underline;
 }
 
 /* === MOBILE FINAL === */
@@ -253,24 +261,39 @@ button:active {
     border-radius: 10px;
   }
 
+  .question {
+    position: relative;
+    margin-bottom: 32px;
+    padding-top: 10px;
+  }
+
+  .question label {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    padding-bottom: 10px;
+  }
+
   .scale {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 6px 20px;
+    padding: 10px 16px;
     scroll-snap-type: x mandatory;
-    scroll-padding-left: 12px; /* Garante que o início fique visível */
+    scroll-padding-left: 16px;
     -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #faf7fd 0%, #ffffff 100%);
   }
 
-  /* Espaçador invisível antes do primeiro número */
   .scale::before {
     content: "";
-    flex: 0 0 12px;
+    flex: 0 0 16px; /* espaço inicial pra o número 0 ou 1 não cortar */
   }
 
   .scale label {
@@ -279,9 +302,11 @@ button:active {
   }
 
   .scale span {
-    width: 42px;
-    height: 42px;
-    font-size: 14px;
+    width: 46px;
+    height: 46px;
+    font-size: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(89, 44, 130, 0.05);
   }
 
   .scale::-webkit-scrollbar {
@@ -295,10 +320,6 @@ button:active {
 
   .scale::-webkit-scrollbar-track {
     background: transparent;
-  }
-
-  .question {
-    margin-bottom: 24px;
   }
 
   h1 {
