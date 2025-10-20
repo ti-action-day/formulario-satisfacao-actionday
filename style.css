@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 
-/* === CONTAINER PRINCIPAL === */
+/* === CONTAINER === */
 .container {
   max-width: 850px;
   background-color: #fff;
@@ -22,26 +22,22 @@ body {
   text-align: center;
   margin-bottom: 25px;
 }
-
 .logo img {
   width: 160px;
-  margin-bottom: 10px;
 }
-
 .logo p {
   color: #592c82;
   font-weight: 500;
   font-size: 15px;
 }
 
-/* === TÍTULOS E TEXTOS === */
+/* === TÍTULOS === */
 h1 {
   text-align: center;
   color: #592c82;
   font-size: 26px;
   margin-bottom: 10px;
 }
-
 p {
   text-align: center;
   color: #444;
@@ -53,7 +49,6 @@ p {
 .question {
   margin-bottom: 35px;
 }
-
 .question label {
   display: block;
   font-weight: 600;
@@ -72,12 +67,11 @@ textarea {
   outline: none;
   transition: border 0.3s;
 }
-
 textarea:focus {
   border-color: #592c82;
 }
 
-/* === ESCALA DE NÚMEROS === */
+/* === ESCALA === */
 .scale {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
@@ -94,7 +88,6 @@ textarea:focus {
 .scale label {
   cursor: pointer;
 }
-
 .scale span {
   display: flex;
   align-items: center;
@@ -108,115 +101,77 @@ textarea:focus {
   transition: all 0.25s ease;
   font-size: 17px;
 }
-
 .scale input[type="radio"] {
   display: none;
 }
 
-/* === CORES GERAIS PARA ESCALAS 0–10 === */
+/* === ESCALA 0–10 === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
-  background-color: #e53935; /* Vermelho */
+  background-color: #e53935;
   color: #fff;
   box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
 }
-
 .scale input[value="3"]:checked + span,
 .scale input[value="4"]:checked + span {
-  background-color: #fb8c00; /* Laranja */
+  background-color: #fb8c00;
   color: #fff;
   box-shadow: 0 0 10px rgba(251, 140, 0, 0.5);
 }
-
 .scale input[value="5"]:checked + span,
 .scale input[value="6"]:checked + span {
-  background-color: #fbc02d; /* Amarelo */
+  background-color: #fbc02d;
   color: #fff;
   box-shadow: 0 0 10px rgba(251, 192, 45, 0.5);
 }
-
 .scale input[value="7"]:checked + span,
 .scale input[value="8"]:checked + span {
-  background-color: #43a047; /* Verde claro */
+  background-color: #43a047;
   color: #fff;
   box-shadow: 0 0 10px rgba(67, 160, 71, 0.5);
 }
-
 .scale input[value="9"]:checked + span,
 .scale input[value="10"]:checked + span {
-  background-color: #2e7d32; /* Verde forte */
-  color: #fff;
-  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
-}
-
-/* === QUESTÃO 4: ESCALA 1–5 COM VERDE A PARTIR DO 4 === */
-.question-4 input[value="1"]:checked + span,
-.question-4 input[value="2"]:checked + span {
-  background-color: #e53935; /* Vermelho */
-  color: #fff;
-  box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
-}
-
-.question-4 input[value="3"]:checked + span {
-  background-color: #fbc02d; /* Amarelo */
-  color: #fff;
-  box-shadow: 0 0 10px rgba(251, 192, 45, 0.5);
-}
-
-.question-4 input[value="4"]:checked + span,
-.question-4 input[value="5"]:checked + span {
-  background-color: #2e7d32; /* Verde forte */
-  color: #fff;
-  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
-}
-
-/* === HOVER COLORIDO (GERAL) === */
-.scale input[value="0"] + span:hover,
-.scale input[value="1"] + span:hover,
-.scale input[value="2"] + span:hover {
-  background-color: #e53935;
-  color: #fff;
-}
-
-.scale input[value="3"] + span:hover,
-.scale input[value="4"] + span:hover {
-  background-color: #fb8c00;
-  color: #fff;
-}
-
-.scale input[value="5"] + span:hover,
-.scale input[value="6"] + span:hover {
-  background-color: #fbc02d;
-  color: #fff;
-}
-
-.scale input[value="7"] + span:hover,
-.scale input[value="8"] + span:hover {
-  background-color: #43a047;
-  color: #fff;
-}
-
-.scale input[value="9"] + span:hover,
-.scale input[value="10"] + span:hover {
   background-color: #2e7d32;
   color: #fff;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
 }
 
-/* === HOVER COLORIDO PARA QUESTÃO 4 === */
-.question-4 input[value="1"] + span:hover,
-.question-4 input[value="2"] + span:hover {
+/* === QUESTÃO 4 – ESCALA 1–5 COM VERDE A PARTIR DO 4 === */
+.question-4 .scale input[value="1"]:checked + span,
+.question-4 .scale input[value="2"]:checked + span {
+  background-color: #e53935 !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(229, 57, 53, 0.5) !important;
+}
+.question-4 .scale input[value="3"]:checked + span {
+  background-color: #fbc02d !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(251, 192, 45, 0.5) !important;
+}
+.question-4 .scale input[value="4"]:checked + span,
+.question-4 .scale input[value="5"]:checked + span {
+  background-color: #2e7d32 !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5) !important;
+}
+
+/* === HOVER COLORIDO === */
+.scale span:hover {
+  transform: scale(1.08);
+}
+.question-4 .scale input[value="1"] + span:hover,
+.question-4 .scale input[value="2"] + span:hover {
   background-color: #e53935;
   color: #fff;
 }
-
-.question-4 input[value="3"] + span:hover {
+.question-4 .scale input[value="3"] + span:hover {
   background-color: #fbc02d;
   color: #fff;
 }
-
-.question-4 input[value="4"] + span:hover,
-.question-4 input[value="5"] + span:hover {
+.question-4 .scale input[value="4"] + span:hover,
+.question-4 .scale input[value="5"] + span:hover {
   background-color: #2e7d32;
   color: #fff;
 }
@@ -237,7 +192,6 @@ button {
   width: 100%;
   max-width: 420px;
 }
-
 button:hover {
   background-color: #452165;
   transform: scale(1.03);
@@ -254,13 +208,11 @@ button:hover {
   width: 100%;
   margin-top: 30px;
 }
-
 .footer a {
   color: #592c82;
   text-decoration: none;
   font-weight: 500;
 }
-
 .footer a:hover {
   text-decoration: underline;
 }
@@ -272,7 +224,6 @@ button:hover {
     overflow-x: hidden;
     background: #ffffff;
   }
-
   .container {
     margin: 0;
     border-radius: 0;
@@ -280,19 +231,15 @@ button:hover {
     padding: 25px 18px 90px;
     min-height: 100vh;
   }
-
   h1 {
     font-size: 20px;
   }
-
   p, label, textarea {
     font-size: 14px;
   }
-
   .question {
     margin-bottom: 25px;
   }
-
   .scale {
     display: flex;
     gap: 12px;
@@ -300,20 +247,17 @@ button:hover {
     padding: 12px 16px;
     overflow-x: auto;
   }
-
   .scale span {
     width: 50px;
     height: 50px;
     font-size: 16px;
   }
-
   button {
     width: 100%;
     font-size: 15px;
     padding: 14px;
     margin-top: 20px;
   }
-
   .footer {
     position: relative;
     padding: 18px 10px;
