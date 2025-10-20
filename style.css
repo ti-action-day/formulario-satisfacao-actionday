@@ -18,6 +18,13 @@ html, body {
   width: 90%;
   margin: 40px auto 0;
   flex: 1;
+  animation: fadeIn 0.8s ease;
+}
+
+/* === ANIMAÇÃO === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* === LOGO === */
@@ -49,6 +56,7 @@ p {
 /* === PERGUNTAS === */
 .question {
   margin-bottom: 30px;
+  animation: fadeIn 0.9s ease;
 }
 
 .question label {
@@ -173,6 +181,7 @@ button {
   display: block;
   margin: 25px auto 0;
   transition: background .2s ease, transform .15s ease;
+  animation: fadeIn 1s ease;
 }
 
 button:hover {
@@ -275,26 +284,27 @@ button:active {
   }
 }
 
-/* === AJUSTE FINO MOBILE (ATÉ 480PX) === */
+/* === CORREÇÃO DEFINITIVA MOBILE (ATÉ 480PX) === */
 @media (max-width: 480px) {
   .container {
     width: 94%;
-    padding: 20px;
+    padding: 22px;
     border-radius: 10px;
   }
 
-  /* Escala 0–10 dividida em duas linhas (5 e 5) */
+  /* Escala 0–10: 5 bolinhas por linha */
   .scale {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
-    gap: 10px 6px;
+    grid-template-columns: repeat(5, 50px);
+    justify-content: center;
+    gap: 10px 12px;
+    margin-top: 15px;
   }
 
   .scale span {
-    width: 42px;
-    height: 42px;
-    font-size: 14px;
+    width: 48px;
+    height: 48px;
+    font-size: 15px;
   }
 
   .legend {
@@ -304,8 +314,8 @@ button:active {
   }
 
   textarea {
-    font-size: 13px;
     margin-top: 12px;
+    font-size: 13px;
   }
 
   .question {
