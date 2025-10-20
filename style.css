@@ -196,11 +196,11 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE === */
+/* === MOBILE (versão ajustada) === */
 @media (max-width: 480px) {
   html, body {
     height: 100%;
-    overflow-y: auto; /* rolagem vertical */
+    overflow-y: auto;
     overflow-x: hidden;
   }
 
@@ -210,13 +210,13 @@ button:hover {
     border-radius: 0;
     padding: 20px;
     box-shadow: none;
+    padding-bottom: 100px; /* 👈 garante que o rodapé não sobreponha o conteúdo */
   }
 
   .question {
     margin-bottom: 28px;
   }
 
-  /* Escala horizontal rolável */
   .scale {
     display: flex;
     flex-wrap: nowrap;
@@ -267,9 +267,15 @@ button:hover {
     padding: 14px;
   }
 
+  /* 👇 Rodapé sempre abaixo, com espaço e centralização */
   .footer {
-    padding: 18px 10px;
+    padding: 22px 10px;
     font-size: 13px;
     margin-top: 40px;
+    background: #f3ecfa;
+    border-top: 2px solid #e2d8f0;
+    color: #592c82;
+    text-align: center;
+    position: relative;
   }
 }
