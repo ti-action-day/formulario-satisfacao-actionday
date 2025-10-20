@@ -1,157 +1,134 @@
-/* === BASE GERAL === */
-html, body {
+/* === FONTES E BASE === */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f6fc;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f8f6fb;
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  color: #2e2b2e;
 }
 
 /* === CONTAINER PRINCIPAL === */
 .container {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 720px;
-  width: 90%;
+  max-width: 850px;
   margin: 40px auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* === LOGO === */
+/* === LOGO E TEXTO === */
 .logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .logo img {
-  width: 260px;
-  max-width: 90%;
+  width: 180px;
   height: auto;
+  display: block;
+  margin: 0 auto 10px;
 }
 
 .logo p {
-  margin-top: 8px;
   color: #592c82;
   font-weight: 500;
+  font-size: 15px;
 }
 
-/* === TÍTULOS === */
+/* === TÍTULOS E TEXTOS === */
 h1 {
-  color: #592c82;
-  font-size: 26px;
   text-align: center;
+  color: #592c82;
   margin-bottom: 10px;
+  font-size: 26px;
 }
 
 p {
-  color: #4a4a4a;
-  margin-bottom: 25px;
-  line-height: 1.5;
   text-align: center;
+  color: #444;
+  margin-bottom: 30px;
+  font-size: 16px;
 }
 
 /* === PERGUNTAS === */
 .question {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-/* === ESCALA === */
+.question label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #592c82;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #cbb8e5;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 15px;
+  resize: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+textarea:focus {
+  border-color: #592c82;
+}
+
+/* === ESCALA DE NÚMEROS === */
 .scale {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f3fc;
+  border-radius: 10px;
+  padding: 12px 14px;
   gap: 10px;
-  margin-top: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scale::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scale::-webkit-scrollbar-thumb {
+  background: #c8b2e3;
+  border-radius: 3px;
 }
 
 .scale label {
   cursor: pointer;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+.scale span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background: #e8e3f0;
+  border-radius: 50%;
+  font-weight: 600;
+  color: #2e2b2e;
+  transition: 0.2s ease;
+  font-size: 17px;
 }
 
 .scale input[type="radio"] {
   display: none;
 }
 
-.scale span {
-  width: 46px;
-  height: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  font-weight: 600;
-  font-size: 15px;
-  background-color: #e0e0e0;
-  color: #333;
-  transition: all 0.3s ease;
-}
-
-.scale label:hover span {
-  transform: scale(1.07);
-}
-
-.scale input:checked + span {
+.scale input[type="radio"]:checked + span {
+  background-color: #592c82;
+  color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-}
-
-/* === CORES DOS BOTÕES === */
-.scale input[value="0"]:checked + span,
-.scale input[value="1"]:checked + span,
-.scale input[value="2"]:checked + span {
-  background-color: #e53935;
-  color: #fff;
-}
-
-.scale input[value="3"]:checked + span,
-.scale input[value="4"]:checked + span {
-  background-color: #ef9a9a;
-  color: #fff;
-}
-
-.scale input[value="5"]:checked + span,
-.scale input[value="6"]:checked + span {
-  background-color: #bdbdbd;
-  color: #fff;
-}
-
-.scale input[value="7"]:checked + span,
-.scale input[value="8"]:checked + span {
-  background-color: #81c784;
-  color: #fff;
-}
-
-.scale input[value="9"]:checked + span,
-.scale input[value="10"]:checked + span {
-  background-color: #43a047;
-  color: #fff;
-}
-
-/* === TEXTAREA === */
-textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #d9cfe8;
-  resize: vertical;
-  font-family: inherit;
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-textarea:focus {
-  border-color: #592c82;
-  outline: none;
 }
 
 /* === BOTÃO === */
@@ -166,7 +143,9 @@ button {
   font-weight: 500;
   transition: all 0.3s ease;
   display: block;
-  margin: 25px auto 0;
+  margin: 30px auto 0;
+  width: 100%;
+  max-width: 400px;
 }
 
 button:hover {
@@ -183,7 +162,8 @@ button:hover {
   color: #592c82;
   font-size: 14px;
   width: 100%;
-  margin-top: auto;
+  margin-top: 40px;
+  position: relative;
 }
 
 .footer a {
@@ -196,10 +176,10 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE (versão final corrigida) === */
+/* === MOBILE (versão final ajustada) === */
 @media (max-width: 480px) {
   html, body {
-    height: 100%;
+    height: auto;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -210,7 +190,7 @@ button:hover {
     border-radius: 0;
     padding: 20px;
     box-shadow: none;
-    padding-bottom: 140px; /* 👈 adiciona espaço suficiente acima do rodapé */
+    padding-bottom: 160px; /* espaço para botão e rodapé */
   }
 
   .question {
@@ -267,19 +247,23 @@ button:hover {
     width: 100%;
     font-size: 15px;
     padding: 14px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2; /* garante que o botão fique acima do rodapé */
   }
 
-  /* Rodapé fixo e centralizado */
   .footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 22px 10px;
     font-size: 13px;
-    margin-top: 0;
     background: #f3ecfa;
     border-top: 2px solid #e2d8f0;
     color: #592c82;
     text-align: center;
-    position: relative;
+    margin-top: 60px;
+    z-index: 1;
   }
 }
