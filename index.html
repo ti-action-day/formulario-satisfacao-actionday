@@ -1,96 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulário de Avaliação da Consultoria | Action Day Digital</title>
-
-  <!-- Estilo oficial lilás -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="container">
-
     <!-- LOGO -->
     <div class="logo">
-      <img src="logo.png" alt="Logo Action Day Digital">
+      <img src="logo.png" alt="Logo Action Day Digital" />
     </div>
 
     <!-- TÍTULO -->
-    <h1>🧭 Avaliação da Consultoria</h1>
-    <p>Queremos saber como foi sua experiência! Suas respostas nos ajudam a melhorar continuamente nossos atendimentos.</p>
+    <h1>🕒 Avaliação da Consultoria</h1>
+    <p>
+      Queremos saber como foi sua experiência! Suas respostas nos ajudam a evoluir e oferecer consultorias cada vez mais transformadoras.
+    </p>
 
     <!-- FORMULÁRIO -->
     <form id="consultoriaForm">
-      
       <!-- PERGUNTA 1 -->
       <div class="question">
-        <label>1️. As orientações da consultoria te ajudaram a enxergar com mais clareza os principais desafios e oportunidades do seu negócio?</label>
-        <div class="options">
-          <label><input type="radio" name="q1" value="Sim, com certeza" required> Sim, com certeza</label>
-          <label><input type="radio" name="q1" value="Parcialmente"> Parcialmente</label>
-          <label><input type="radio" name="q1" value="Ainda não totalmente"> Ainda não totalmente</label>
-          <label><input type="radio" name="q1" value="Não"> Não</label>
+        <label>1️. O quão satisfeito você está com a consultoria fornecida pela Action Day?</label>
+        <div class="scale color-scale" id="satisfacaoScale">
+          <label><input type="radio" name="satisfacao" value="0" required /><span>0</span></label>
+          <label><input type="radio" name="satisfacao" value="1" /><span>1</span></label>
+          <label><input type="radio" name="satisfacao" value="2" /><span>2</span></label>
+          <label><input type="radio" name="satisfacao" value="3" /><span>3</span></label>
+          <label><input type="radio" name="satisfacao" value="4" /><span>4</span></label>
+          <label><input type="radio" name="satisfacao" value="5" /><span>5</span></label>
+          <label><input type="radio" name="satisfacao" value="6" /><span>6</span></label>
+          <label><input type="radio" name="satisfacao" value="7" /><span>7</span></label>
+          <label><input type="radio" name="satisfacao" value="8" /><span>8</span></label>
+          <label><input type="radio" name="satisfacao" value="9" /><span>9</span></label>
+          <label><input type="radio" name="satisfacao" value="10" /><span>10</span></label>
         </div>
-        <textarea name="q1_obs" placeholder="Espaço para escrever (opcional)"></textarea>
+
+        <ul class="legend">
+          <li><b>9–10</b> Muito satisfeito (Excelente)</li>
+          <li><b>7–8</b> Satisfeito (Bom)</li>
+          <li><b>5–6</b> Indiferente</li>
+          <li><b>3–4</b> Insatisfeito</li>
+          <li><b>0–2</b> Muito insatisfeito</li>
+        </ul>
+
+        <textarea name="motivo_nota" placeholder="O que mais influenciou na sua nota? (opcional)"></textarea>
       </div>
 
       <!-- PERGUNTA 2 -->
       <div class="question">
-        <label>2️. Após a consultoria, você sente que está mais preparado para tomar decisões estratégicas no seu negócio?</label>
+        <label>2️. As orientações da consultoria te ajudaram a enxergar com mais clareza os principais desafios e oportunidades do seu negócio?</label>
         <div class="options">
-          <label><input type="radio" name="q2" value="Sim" required> Sim</label>
-          <label><input type="radio" name="q2" value="Parcialmente"> Parcialmente</label>
-          <label><input type="radio" name="q2" value="Ainda não"> Ainda não</label>
+          <label><input type="radio" name="clareza" value="Sim, com certeza" required /> Sim, com certeza</label>
+          <label><input type="radio" name="clareza" value="Parcialmente" /> Parcialmente</label>
+          <label><input type="radio" name="clareza" value="Ainda não totalmente" /> Ainda não totalmente</label>
+          <label><input type="radio" name="clareza" value="Não" /> Não</label>
         </div>
-        <textarea name="q2_obs" placeholder="Espaço para escrever (opcional)"></textarea>
+        <textarea name="clareza_obs" placeholder="Espaço para escrever (opcional)"></textarea>
       </div>
 
       <!-- PERGUNTA 3 -->
       <div class="question">
-        <label>3️. O quanto você acredita que as orientações do consultor contribuíram para gerar novas ideias e melhorias no seu negócio?</label>
-        <div class="scale">
-          <span>1</span>
-          <input type="radio" name="q3" value="1" required>
-          <input type="radio" name="q3" value="2">
-          <input type="radio" name="q3" value="3">
-          <input type="radio" name="q3" value="4">
-          <input type="radio" name="q3" value="5">
-          <input type="radio" name="q3" value="6">
-          <input type="radio" name="q3" value="7">
-          <input type="radio" name="q3" value="8">
-          <input type="radio" name="q3" value="9">
-          <input type="radio" name="q3" value="10">
-          <span>10</span>
+        <label>3️. Após a consultoria, você sente que está mais preparado para tomar decisões estratégicas no seu negócio?</label>
+        <div class="options">
+          <label><input type="radio" name="decisoes" value="Sim" required /> Sim</label>
+          <label><input type="radio" name="decisoes" value="Parcialmente" /> Parcialmente</label>
+          <label><input type="radio" name="decisoes" value="Ainda não" /> Ainda não</label>
         </div>
+        <textarea name="decisoes_obs" placeholder="Espaço para escrever (opcional)"></textarea>
       </div>
 
       <!-- PERGUNTA 4 -->
       <div class="question">
-        <label>4️. O que você considera que mais agregou valor para você durante a consultoria?</label>
-        <textarea name="q4" placeholder="Espaço para escrever (opcional)"></textarea>
+        <label>4️. O quanto você acredita que as orientações do consultor Fábio contribuíram para gerar novas ideias e melhorias no seu negócio?</label>
+        <div class="scale fabioScale">
+          <label><input type="radio" name="fabio" value="1" required /><span>1</span></label>
+          <label><input type="radio" name="fabio" value="2" /><span>2</span></label>
+          <label><input type="radio" name="fabio" value="3" /><span>3</span></label>
+          <label><input type="radio" name="fabio" value="4" /><span>4</span></label>
+          <label><input type="radio" name="fabio" value="5" /><span>5</span></label>
+        </div>
+
+        <ul class="legend">
+          <li><b>5</b> Muito satisfeito — 🟢 Verde</li>
+          <li><b>4</b> Satisfeito — 🟢 Verde-claro</li>
+          <li><b>3</b> Neutro — 🟡 Amarelo</li>
+          <li><b>2</b> Insatisfeito — 🟠 Laranja</li>
+          <li><b>1</b> Muito insatisfeito — 🔴 Vermelho</li>
+        </ul>
       </div>
 
-      <!-- PERGUNTA 5 -->
-      <div class="question">
-        <label>5️. O que você acredita que poderíamos aprimorar para tornar a consultoria ainda mais eficaz?</label>
-        <textarea name="q5" placeholder="Espaço para escrever (opcional)"></textarea>
-      </div>
+      <!-- CAMPOS OCULTOS -->
+      <input type="hidden" name="c" id="param-c" />
+      <input type="hidden" name="p" id="param-p" />
 
-      <!-- CAMPOS OCULTOS DE CONTROLE -->
-      <!-- UTMs -->
-      <input type="hidden" name="utm_source" id="utm_source">
-      <input type="hidden" name="utm_medium" id="utm_medium">
-      <input type="hidden" name="utm_campaign" id="utm_campaign">
-      <input type="hidden" name="utm_content" id="utm_content">
-      <input type="hidden" name="utm_term" id="utm_term">
-
-      <!-- CLIENTE E PRODUTO (preenchidos via script.js) -->
-      <input type="hidden" name="cliente" id="cliente">
-      <input type="hidden" name="produto" id="produto">
-
-      <!-- BOTÃO DE ENVIO -->
+      <!-- BOTÃO -->
       <button type="submit">Enviar Respostas</button>
     </form>
 
@@ -98,10 +105,14 @@
     <p class="feedback" id="feedbackMsg"></p>
   </div>
 
-  <!-- EMAILJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p>
+      © 2025 <strong>Action Day Digital</strong> — Estratégia, Tecnologia e Crescimento 🚀<br />
+      <small>Todos os direitos reservados | <a href="https://actiondaydigital.com.br" target="_blank">actiondaydigital.com.br</a></small>
+    </p>
+  </footer>
 
-  <!-- SCRIPT PRINCIPAL -->
   <script src="script.js"></script>
 </body>
 </html>
