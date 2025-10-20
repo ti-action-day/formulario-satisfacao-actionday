@@ -255,17 +255,22 @@ button:active {
 
   .scale {
     display: flex;
-    justify-content: flex-start; /* alinha à esquerda */
+    justify-content: flex-start;
     align-items: center;
     gap: 8px;
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 6px 20px; /* garante espaço lateral */
-    margin-left: 0;
-    margin-right: 0;
-    -webkit-overflow-scrolling: touch;
+    padding: 6px 20px;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 12px; /* Garante que o início fique visível */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Espaçador invisível antes do primeiro número */
+  .scale::before {
+    content: "";
+    flex: 0 0 12px;
   }
 
   .scale label {
@@ -290,12 +295,6 @@ button:active {
 
   .scale::-webkit-scrollbar-track {
     background: transparent;
-  }
-
-  /* Garante que o primeiro número nunca seja cortado */
-  .scale::before {
-    content: "";
-    flex: 0 0 12px;
   }
 
   .question {
