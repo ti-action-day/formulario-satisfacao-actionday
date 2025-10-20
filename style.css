@@ -117,68 +117,68 @@ textarea:focus {
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
-  background-color: #d9534f;
+  background-color: #e53935;
   color: #fff;
-  box-shadow: 0 0 8px rgba(217, 83, 79, 0.5);
+  box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
 }
 
 .scale input[value="3"]:checked + span,
 .scale input[value="4"]:checked + span {
-  background-color: #f0ad4e;
+  background-color: #fb8c00;
   color: #fff;
-  box-shadow: 0 0 8px rgba(240, 173, 78, 0.5);
+  box-shadow: 0 0 10px rgba(251, 140, 0, 0.5);
 }
 
 .scale input[value="5"]:checked + span,
 .scale input[value="6"]:checked + span {
-  background-color: #9e9e9e;
+  background-color: #fbc02d;
   color: #fff;
-  box-shadow: 0 0 8px rgba(158, 158, 158, 0.4);
+  box-shadow: 0 0 10px rgba(251, 192, 45, 0.5);
 }
 
 .scale input[value="7"]:checked + span,
 .scale input[value="8"]:checked + span {
-  background-color: #428bca;
+  background-color: #43a047;
   color: #fff;
-  box-shadow: 0 0 8px rgba(66, 139, 202, 0.5);
+  box-shadow: 0 0 10px rgba(67, 160, 71, 0.5);
 }
 
 .scale input[value="9"]:checked + span,
 .scale input[value="10"]:checked + span {
-  background-color: #592c82;
+  background-color: #2e7d32;
   color: #fff;
-  box-shadow: 0 0 10px rgba(89, 44, 130, 0.5);
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
 }
 
-/* === CORES AO PASSAR O MOUSE (HOVER) === */
+/* === HOVER COLORIDO === */
 .scale input[value="0"] + span:hover,
 .scale input[value="1"] + span:hover,
 .scale input[value="2"] + span:hover {
-  background-color: #d9534f;
+  background-color: #e53935;
   color: #fff;
 }
 
 .scale input[value="3"] + span:hover,
 .scale input[value="4"] + span:hover {
-  background-color: #f0ad4e;
+  background-color: #fb8c00;
   color: #fff;
 }
 
 .scale input[value="5"] + span:hover,
 .scale input[value="6"] + span:hover {
-  background-color: #9e9e9e;
+  background-color: #fbc02d;
   color: #fff;
 }
 
 .scale input[value="7"] + span:hover,
 .scale input[value="8"] + span:hover {
-  background-color: #428bca;
+  background-color: #43a047;
   color: #fff;
 }
 
 .scale input[value="9"] + span:hover,
 .scale input[value="10"] + span:hover {
-  background-color: #592c82;
+  background-color: #2e7d32;
   color: #fff;
 }
 
