@@ -17,29 +17,40 @@ html, body {
   max-width: 720px;
   width: 90%;
   margin: 40px auto 0;
-  flex: 1; /* empurra o footer pro final quando a página é alta */
+  flex: 1;
 }
 
 /* === LOGO === */
-.logo { text-align: center; margin-bottom: 20px; }
-.logo img { width: 280px; height: auto; }
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 280px;
+  height: auto;
+}
 
 /* === TÍTULOS E TEXTOS === */
 h1 {
   color: #592c82;
   font-size: 26px;
   text-align: center;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
+
 p {
   color: #4a4a4a;
   text-align: center;
-  margin: 0 0 25px;
+  margin-bottom: 25px;
   line-height: 1.5;
 }
 
 /* === PERGUNTAS === */
-.question { margin-bottom: 30px; }
+.question {
+  margin-bottom: 30px;
+}
+
 .question label {
   color: #592c82;
   font-weight: 600;
@@ -47,7 +58,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* === OPÇÕES (radios comuns) === */
+/* === OPÇÕES DE RESPOSTA === */
 .options label {
   display: block;
   margin: 8px 0;
@@ -63,42 +74,73 @@ p {
   gap: 10px;
   margin-top: 15px;
 }
-.scale input[type="radio"] { display: none; }
+
+.scale input[type="radio"] {
+  display: none;
+}
+
 .scale span {
-  width: 46px; height: 46px;
-  display: flex; align-items: center; justify-content: center;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background: #e0e0e0;
-  color: #333; font-weight: 600; font-size: 15px;
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
   transition: transform .2s ease, filter .2s ease, background .2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08) inset;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) inset;
 }
-.scale label:hover span { transform: scale(1.07); filter: brightness(1.08); }
-.scale input:checked + span { box-shadow: 0 0 0 3px rgba(89,44,130,.12); }
 
-/* === CORES DINÂMICAS PARA 0–10 === */
+.scale label:hover span {
+  transform: scale(1.07);
+  filter: brightness(1.08);
+}
+
+.scale input:checked + span {
+  box-shadow: 0 0 0 3px rgba(89,44,130,.12);
+}
+
+/* === CORES PARA ESCALA 0–10 === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
-.scale input[value="2"]:checked + span { background: #e53935; color: #fff; }
+.scale input[value="2"]:checked + span {
+  background: #e53935;
+  color: #fff;
+}
 
 .scale input[value="3"]:checked + span,
-.scale input[value="4"]:checked + span { background: #fb8c00; color: #fff; }
+.scale input[value="4"]:checked + span {
+  background: #fb8c00;
+  color: #fff;
+}
 
 .scale input[value="5"]:checked + span,
-.scale input[value="6"]:checked + span { background: #fdd835; color: #333; }
+.scale input[value="6"]:checked + span {
+  background: #fdd835;
+  color: #333;
+}
 
 .scale input[value="7"]:checked + span,
-.scale input[value="8"]:checked + span { background: #81c784; color: #fff; }
+.scale input[value="8"]:checked + span {
+  background: #81c784;
+  color: #fff;
+}
 
 .scale input[value="9"]:checked + span,
-.scale input[value="10"]:checked + span { background: #43a047; color: #fff; }
+.scale input[value="10"]:checked + span {
+  background: #43a047;
+  color: #fff;
+}
 
-/* === CORES PARA ESCALA FÁBIO (1–5) === */
-.fabioScale input[value="1"]:checked + span { background: #e53935; color:#fff; }
-.fabioScale input[value="2"]:checked + span { background: #fb8c00; color:#fff; }
-.fabioScale input[value="3"]:checked + span { background: #fdd835; color:#333; }
-.fabioScale input[value="4"]:checked + span { background: #81c784; color:#fff; }
-.fabioScale input[value="5"]:checked + span { background: #43a047; color:#fff; }
+/* === CORES ESCALA FÁBIO (1–5) === */
+.fabioScale input[value="1"]:checked + span { background: #e53935; color: #fff; }
+.fabioScale input[value="2"]:checked + span { background: #fb8c00; color: #fff; }
+.fabioScale input[value="3"]:checked + span { background: #fdd835; color: #333; }
+.fabioScale input[value="4"]:checked + span { background: #81c784; color: #fff; }
+.fabioScale input[value="5"]:checked + span { background: #43a047; color: #fff; }
 
 /* === TEXTAREA === */
 textarea {
@@ -111,6 +153,7 @@ textarea {
   transition: border-color .2s ease, box-shadow .2s ease;
   margin-top: 15px;
 }
+
 textarea:focus {
   border-color: #592c82;
   outline: none;
@@ -131,21 +174,34 @@ button {
   margin: 25px auto 0;
   transition: background .2s ease, transform .15s ease;
 }
-button:hover { background: #452165; transform: translateY(-1px); }
-button:active { transform: translateY(0); }
 
-/* === LEGENDA SIMPLIFICADA === */
+button:hover {
+  background: #452165;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* === LEGENDA === */
 .legend {
   list-style: none;
   padding: 0;
-  margin: 15px 0 0;
+  margin-top: 15px;
   font-size: 14px;
   color: #333;
   text-align: left;
   line-height: 1.6;
 }
-.legend li { margin: 3px 0; }
-.legend strong { color: #2f2f2f; }
+
+.legend li {
+  margin: 3px 0;
+}
+
+.legend strong {
+  color: #2f2f2f;
+}
 
 /* === FEEDBACK === */
 .feedback {
@@ -155,7 +211,7 @@ button:active { transform: translateY(0); }
   margin-top: 15px;
 }
 
-/* === RODAPÉ (mesma largura do card) === */
+/* === RODAPÉ === */
 .footer {
   text-align: center;
   padding: 20px 40px;
@@ -166,35 +222,117 @@ button:active { transform: translateY(0); }
   font-weight: 500;
   max-width: 720px;
   width: 100%;
-  margin: -10px auto 20px; /* encosta no card com respiro abaixo */
+  margin: -10px auto 20px;
   border-radius: 0 0 14px 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
 .footer .slogan {
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 8px;
+  margin-bottom: 8px;
 }
-.footer a { color: #592c82; text-decoration: none; font-weight: 600; }
-.footer a:hover { color: #7a49b3; text-decoration: underline; }
+
+.footer a {
+  color: #592c82;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: #7a49b3;
+  text-decoration: underline;
+}
 
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
-  .container { width: 95%; padding: 28px; }
-  h1 { font-size: 22px; }
-  p, .question label, textarea { font-size: 14px; }
-  .scale span { width: 44px; height: 44px; font-size: 14px; }
-  .footer { padding: 18px 28px; font-size: 13px; }
-  .footer .slogan { font-size: 15px; }
+  .container {
+    width: 95%;
+    padding: 28px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  p, .question label, textarea {
+    font-size: 14px;
+  }
+
+  .scale span {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 18px 28px;
+    font-size: 13px;
+  }
+
+  .footer .slogan {
+    font-size: 15px;
+  }
 }
 
+/* === AJUSTE FINO MOBILE (ATÉ 480PX) === */
 @media (max-width: 480px) {
-  .container { width: 94%; padding: 20px; border-radius: 10px; }
-  .scale { gap: 8px; }
-  .scale span { width: 40px; height: 40px; font-size: 13px; }
-  button { width: 100%; padding: 14px; font-size: 15px; }
-  textarea { font-size: 13px; }
-  .legend { font-size: 13px; }
-  .footer { padding: 16px 20px; border-radius: 0 0 10px 10px; }
-  .footer .slogan { font-size: 14px; margin-bottom: 6px; }
+  .container {
+    width: 94%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  /* Escala em grid para caber melhor no mobile */
+  .scale {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    justify-items: center;
+    row-gap: 10px;
+  }
+
+  .scale span {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .legend {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+
+  textarea {
+    margin-top: 12px;
+    font-size: 13px;
+  }
+
+  .question {
+    margin-bottom: 24px;
+  }
+
+  .logo img {
+    width: 220px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .footer {
+    padding: 16px 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .footer .slogan {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
 }
