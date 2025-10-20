@@ -1,33 +1,31 @@
-/* === BASE === */
+/* === BASE GERAL === */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f9f6fc;
+  background: linear-gradient(180deg, #f9f6fc 0%, #ffffff 100%);
+  color: #2e2b2e;
   margin: 0;
   padding: 0;
-  color: #2e2b2e;
 }
 
-/* === CONTAINER === */
+/* === CONTAINER PRINCIPAL === */
 .container {
   max-width: 850px;
-  margin: 40px auto;
   background-color: #fff;
-  padding: 40px 60px;
-  border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: 60px auto;
+  padding: 50px 60px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(89, 44, 130, 0.12);
 }
 
 /* === LOGO === */
 .logo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .logo img {
-  width: 180px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
+  width: 160px;
+  margin-bottom: 10px;
 }
 
 .logo p {
@@ -36,12 +34,12 @@ body {
   font-size: 15px;
 }
 
-/* === TEXTOS === */
+/* === TÍTULOS E TEXTOS === */
 h1 {
   text-align: center;
   color: #592c82;
-  margin-bottom: 10px;
   font-size: 26px;
+  margin-bottom: 10px;
 }
 
 p {
@@ -53,13 +51,13 @@ p {
 
 /* === PERGUNTAS === */
 .question {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .question label {
   display: block;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #592c82;
 }
 
@@ -67,12 +65,12 @@ p {
 textarea {
   width: 100%;
   border: 1px solid #cbb8e5;
-  border-radius: 6px;
-  padding: 10px;
+  border-radius: 8px;
+  padding: 12px;
   font-size: 15px;
   resize: none;
   outline: none;
-  transition: 0.3s;
+  transition: border 0.3s;
 }
 
 textarea:focus {
@@ -84,44 +82,12 @@ textarea:focus {
   display: flex;
   align-items: center;
   background: #f7f3fc;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 12px 14px;
   gap: 10px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  position: relative;
-}
-
-/* Fade lateral suave (premium) */
-.scale::before,
-.scale::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 35px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.scale::before {
-  left: 0;
-  background: linear-gradient(to right, #f9f6fc 70%, transparent);
-}
-
-.scale::after {
-  right: 0;
-  background: linear-gradient(to left, #f9f6fc 70%, transparent);
-}
-
-.scale::-webkit-scrollbar {
-  height: 6px;
-}
-
-.scale::-webkit-scrollbar-thumb {
-  background: #c8b2e3;
-  border-radius: 3px;
 }
 
 .scale label {
@@ -152,6 +118,7 @@ textarea:focus {
   background-color: #592c82;
   color: #fff;
   transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(89, 44, 130, 0.3);
 }
 
 /* === BOTÃO === */
@@ -159,17 +126,16 @@ button {
   background-color: #592c82;
   color: #ffffff;
   border: none;
-  padding: 13px 24px;
-  border-radius: 6px;
+  padding: 14px 24px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
   transition: all 0.3s ease;
   display: block;
-  margin: 20px auto 6px;
+  margin: 25px auto 15px;
   width: 100%;
-  max-width: 400px;
-  line-height: 1; /* corrige centralização vertical */
+  max-width: 420px;
 }
 
 button:hover {
@@ -180,14 +146,13 @@ button:hover {
 /* === RODAPÉ === */
 .footer {
   text-align: center;
-  padding: 16px 10px;
+  padding: 20px 10px;
   background: #f3ecfa;
   border-top: 2px solid #e2d8f0;
   color: #592c82;
   font-size: 14px;
   width: 100%;
-  margin-top: 4px;
-  position: relative;
+  margin-top: 30px;
 }
 
 .footer a {
@@ -204,45 +169,16 @@ button:hover {
 @media (max-width: 480px) {
   html, body {
     height: auto;
-    overflow-y: auto;
     overflow-x: hidden;
+    background: #ffffff;
   }
 
   .container {
-    min-height: 100vh;
     margin: 0;
     border-radius: 0;
-    padding: 20px;
     box-shadow: none;
-    padding-bottom: 70px; /* reduzido: distância perfeita entre botão e rodapé */
-  }
-
-  .question {
-    margin-bottom: 22px;
-  }
-
-  .scale {
-    gap: 12px;
-    padding: 10px 16px;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 16px;
-    -webkit-overflow-scrolling: touch;
-    background: #fdfcff;
-  }
-
-  .scale span {
-    width: 50px;
-    height: 50px;
-    font-size: 16px;
-  }
-
-  .scale::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .scale::-webkit-scrollbar-thumb {
-    background: #c8b2e3;
-    border-radius: 3px;
+    padding: 25px 18px 90px;
+    min-height: 100vh;
   }
 
   h1 {
@@ -253,19 +189,35 @@ button:hover {
     font-size: 14px;
   }
 
+  .question {
+    margin-bottom: 25px;
+  }
+
+  .scale {
+    background: #fdfcff;
+    border-radius: 10px;
+    padding: 10px 16px;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  .scale span {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+  }
+
   button {
     width: 100%;
     font-size: 15px;
     padding: 14px;
-    margin-top: 15px;
-    position: relative;
-    z-index: 2;
+    margin-top: 20px;
   }
 
   .footer {
     position: relative;
     padding: 18px 10px;
+    margin-top: 5px;
     font-size: 13px;
-    margin-top: 10px;
   }
 }
