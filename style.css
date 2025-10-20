@@ -2,7 +2,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   background-color: #f8f6fb;
   display: flex;
   flex-direction: column;
@@ -17,37 +17,29 @@ html, body {
   max-width: 720px;
   width: 90%;
   margin: 40px auto 0;
-  flex: 1;
+  flex: 1; /* empurra o footer pro final quando a página é alta */
 }
 
 /* === LOGO === */
-.logo {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.logo img {
-  width: 280px;
-  height: auto;
-}
+.logo { text-align: center; margin-bottom: 20px; }
+.logo img { width: 280px; height: auto; }
 
-/* === TÍTULO E TEXTO === */
+/* === TÍTULOS E TEXTOS === */
 h1 {
   color: #592c82;
   font-size: 26px;
   text-align: center;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 p {
   color: #4a4a4a;
   text-align: center;
-  margin-bottom: 25px;
+  margin: 0 0 25px;
   line-height: 1.5;
 }
 
 /* === PERGUNTAS === */
-.question {
-  margin-bottom: 30px;
-}
+.question { margin-bottom: 30px; }
 .question label {
   color: #592c82;
   font-weight: 600;
@@ -55,7 +47,15 @@ p {
   margin-bottom: 10px;
 }
 
-/* === ESCALA === */
+/* === OPÇÕES (radios comuns) === */
+.options label {
+  display: block;
+  margin: 8px 0;
+  color: #2e2b2e;
+  cursor: pointer;
+}
+
+/* === ESCALAS CIRCULARES (0–10 e 1–5) === */
 .scale {
   display: flex;
   justify-content: center;
@@ -63,48 +63,42 @@ p {
   gap: 10px;
   margin-top: 15px;
 }
-.scale input[type="radio"] {
-  display: none;
-}
+.scale input[type="radio"] { display: none; }
 .scale span {
-  width: 46px;
-  height: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
   background: #e0e0e0;
-  color: #333;
-  font-weight: 600;
-  transition: all 0.3s;
+  color: #333; font-weight: 600; font-size: 15px;
+  transition: transform .2s ease, filter .2s ease, background .2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08) inset;
 }
-.scale label:hover span {
-  transform: scale(1.07);
-  filter: brightness(1.15);
-}
+.scale label:hover span { transform: scale(1.07); filter: brightness(1.08); }
+.scale input:checked + span { box-shadow: 0 0 0 3px rgba(89,44,130,.12); }
 
-/* === CORES DA ESCALA === */
+/* === CORES DINÂMICAS PARA 0–10 === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
-.scale input[value="2"]:checked + span {
-  background-color: #e53935; color: #fff;
-}
+.scale input[value="2"]:checked + span { background: #e53935; color: #fff; }
+
 .scale input[value="3"]:checked + span,
-.scale input[value="4"]:checked + span {
-  background-color: #fb8c00; color: #fff;
-}
+.scale input[value="4"]:checked + span { background: #fb8c00; color: #fff; }
+
 .scale input[value="5"]:checked + span,
-.scale input[value="6"]:checked + span {
-  background-color: #fdd835; color: #333;
-}
+.scale input[value="6"]:checked + span { background: #fdd835; color: #333; }
+
 .scale input[value="7"]:checked + span,
-.scale input[value="8"]:checked + span {
-  background-color: #81c784; color: #fff;
-}
+.scale input[value="8"]:checked + span { background: #81c784; color: #fff; }
+
 .scale input[value="9"]:checked + span,
-.scale input[value="10"]:checked + span {
-  background-color: #43a047; color: #fff;
-}
+.scale input[value="10"]:checked + span { background: #43a047; color: #fff; }
+
+/* === CORES PARA ESCALA FÁBIO (1–5) === */
+.fabioScale input[value="1"]:checked + span { background: #e53935; color:#fff; }
+.fabioScale input[value="2"]:checked + span { background: #fb8c00; color:#fff; }
+.fabioScale input[value="3"]:checked + span { background: #fdd835; color:#333; }
+.fabioScale input[value="4"]:checked + span { background: #81c784; color:#fff; }
+.fabioScale input[value="5"]:checked + span { background: #43a047; color:#fff; }
 
 /* === TEXTAREA === */
 textarea {
@@ -114,12 +108,13 @@ textarea {
   border: 1px solid #d9cfe8;
   font-size: 14px;
   resize: vertical;
-  transition: border-color 0.3s;
+  transition: border-color .2s ease, box-shadow .2s ease;
   margin-top: 15px;
 }
 textarea:focus {
   border-color: #592c82;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(89,44,130,.12);
 }
 
 /* === BOTÃO === */
@@ -134,26 +129,23 @@ button {
   font-weight: 500;
   display: block;
   margin: 25px auto 0;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background .2s ease, transform .15s ease;
 }
-button:hover {
-  background: #452165;
-  transform: scale(1.03);
-}
+button:hover { background: #452165; transform: translateY(-1px); }
+button:active { transform: translateY(0); }
 
-/* === LEGENDA === */
+/* === LEGENDA SIMPLIFICADA === */
 .legend {
   list-style: none;
   padding: 0;
+  margin: 15px 0 0;
   font-size: 14px;
   color: #333;
   text-align: left;
-  margin-top: 15px;
   line-height: 1.6;
 }
-.legend li {
-  margin: 3px 0;
-}
+.legend li { margin: 3px 0; }
+.legend strong { color: #2f2f2f; }
 
 /* === FEEDBACK === */
 .feedback {
@@ -163,7 +155,7 @@ button:hover {
   margin-top: 15px;
 }
 
-/* === RODAPÉ === */
+/* === RODAPÉ (mesma largura do card) === */
 .footer {
   text-align: center;
   padding: 20px 40px;
@@ -174,38 +166,35 @@ button:hover {
   font-weight: 500;
   max-width: 720px;
   width: 100%;
-  margin: -10px auto 0;
+  margin: -10px auto 20px; /* encosta no card com respiro abaixo */
   border-radius: 0 0 14px 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .footer .slogan {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
-.footer a {
-  color: #592c82;
-  text-decoration: none;
-  font-weight: 600;
-}
-.footer a:hover {
-  color: #7a49b3;
-  text-decoration: underline;
-}
+.footer a { color: #592c82; text-decoration: none; font-weight: 600; }
+.footer a:hover { color: #7a49b3; text-decoration: underline; }
 
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
-  .container { width: 95%; padding: 25px; }
+  .container { width: 95%; padding: 28px; }
   h1 { font-size: 22px; }
-  p, label, textarea { font-size: 14px; }
-  .footer { padding: 18px 25px; font-size: 13px; }
+  p, .question label, textarea { font-size: 14px; }
+  .scale span { width: 44px; height: 44px; font-size: 14px; }
+  .footer { padding: 18px 28px; font-size: 13px; }
   .footer .slogan { font-size: 15px; }
 }
+
 @media (max-width: 480px) {
   .container { width: 94%; padding: 20px; border-radius: 10px; }
-  .scale span { width: 40px; height: 40px; font-size: 14px; }
-  .footer { padding: 16px 20px; border-radius: 0 0 10px 10px; }
-  .footer .slogan { font-size: 14px; margin-bottom: 6px; }
+  .scale { gap: 8px; }
+  .scale span { width: 40px; height: 40px; font-size: 13px; }
   button { width: 100%; padding: 14px; font-size: 15px; }
   textarea { font-size: 13px; }
+  .legend { font-size: 13px; }
+  .footer { padding: 16px 20px; border-radius: 0 0 10px 10px; }
+  .footer .slogan { font-size: 14px; margin-bottom: 6px; }
 }
