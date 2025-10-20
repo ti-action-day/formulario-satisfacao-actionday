@@ -1,62 +1,61 @@
-/* === ESTILO BASE === */
-body {
+/* === BASE === */
+html, body {
+  height: 100%;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #f8f6fb;
-  padding: 40px 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* === CONTAINER PRINCIPAL === */
+/* === CONTAINER === */
 .container {
-  background: #ffffff;
+  background: #fff;
   padding: 40px;
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   max-width: 720px;
   width: 90%;
-  margin: 0 auto 60px auto;
+  margin: 40px auto 0 auto;
+  flex: 1;
 }
 
 /* === LOGO === */
 .logo {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-bottom: 20px;
 }
-
 .logo img {
-  width: 300px;
+  width: 280px;
   height: auto;
 }
 
-/* === TÍTULO === */
+/* === TÍTULO E TEXTO === */
 h1 {
   color: #592c82;
   font-size: 26px;
   text-align: center;
   margin-bottom: 10px;
 }
-
 p {
   color: #4a4a4a;
+  text-align: center;
   margin-bottom: 25px;
   line-height: 1.5;
-  text-align: center;
 }
 
-/* === BLOCO DE PERGUNTA === */
+/* === PERGUNTAS === */
 .question {
   margin-bottom: 30px;
 }
-
 .question label {
+  color: #592c82;
   font-weight: 600;
   display: block;
   margin-bottom: 10px;
-  color: #592c82;
 }
 
-/* === ESCALA VISUAL (0–10 e 0–5) === */
+/* === ESCALA === */
 .scale {
   display: flex;
   justify-content: center;
@@ -64,15 +63,9 @@ p {
   gap: 10px;
   margin-top: 15px;
 }
-
-.scale label {
-  cursor: pointer;
-}
-
 .scale input[type="radio"] {
   display: none;
 }
-
 .scale span {
   width: 46px;
   height: 46px;
@@ -80,163 +73,118 @@ p {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-weight: 600;
-  font-size: 15px;
-  background-color: #e0e0e0; /* cor neutra inicial */
+  background: #e0e0e0;
   color: #333;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s;
 }
-
-/* === HOVER === */
 .scale label:hover span {
   transform: scale(1.07);
   filter: brightness(1.15);
 }
 
-/* === SELEÇÃO ESCALA 0–10 === */
-.scale input[value="0"]:checked + span,
-.scale input[value="1"]:checked + span,
-.scale input[value="2"]:checked + span {
-  background-color: #e53935; /* vermelho forte */
-  color: #fff;
-}
+/* === ESCALA FÁBIO === */
+.fabioScale input[value="1"]:checked + span { background: #e53935; color: #fff; }
+.fabioScale input[value="2"]:checked + span { background: #fb8c00; color: #fff; }
+.fabioScale input[value="3"]:checked + span { background: #fdd835; color: #333; }
+.fabioScale input[value="4"]:checked + span { background: #81c784; color: #fff; }
+.fabioScale input[value="5"]:checked + span { background: #43a047; color: #fff; }
 
-.scale input[value="3"]:checked + span,
-.scale input[value="4"]:checked + span {
-  background-color: #ef9a9a; /* vermelho suave */
-  color: #fff;
-}
-
-.scale input[value="5"]:checked + span,
-.scale input[value="6"]:checked + span {
-  background-color: #bdbdbd; /* neutro */
-  color: #fff;
-}
-
-.scale input[value="7"]:checked + span,
-.scale input[value="8"]:checked + span {
-  background-color: #81c784; /* verde médio */
-  color: #fff;
-}
-
-.scale input[value="9"]:checked + span,
-.scale input[value="10"]:checked + span {
-  background-color: #43a047; /* verde forte */
-  color: #fff;
-}
-
-/* === SELEÇÃO ESCALA FÁBIO (0–5) === */
-.fabioScale input[value="1"]:checked + span {
-  background-color: #e53935;
-  color: #fff;
-}
-.fabioScale input[value="2"]:checked + span {
-  background-color: #fb8c00;
-  color: #fff;
-}
-.fabioScale input[value="3"]:checked + span {
-  background-color: #fdd835;
-  color: #333;
-}
-.fabioScale input[value="4"]:checked + span {
-  background-color: #81c784;
-  color: #fff;
-}
-.fabioScale input[value="5"]:checked + span {
-  background-color: #43a047;
-  color: #fff;
-}
-
-/* === INTERAÇÃO DE SELEÇÃO === */
-.scale input:checked + span {
-  transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-}
-
-/* === TEXTAREAS === */
+/* === TEXTAREA === */
 textarea {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #d9cfe8;
-  resize: vertical;
-  font-family: inherit;
   font-size: 14px;
-  margin-top: 8px;
+  resize: vertical;
   transition: border-color 0.3s;
 }
-
 textarea:focus {
   border-color: #592c82;
   outline: none;
 }
 
-/* === OPÇÕES DE RESPOSTA === */
-.options label {
-  display: block;
-  margin: 6px 0;
-  cursor: pointer;
-  color: #2e2b2e;
-}
-
 /* === BOTÃO === */
 button {
-  background-color: #592c82;
-  color: #ffffff;
+  background: #592c82;
+  color: #fff;
   border: none;
   padding: 12px 24px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-  transition: background-color 0.3s, transform 0.2s;
   display: block;
   margin: 25px auto 0;
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 button:hover {
-  background-color: #452165;
+  background: #452165;
   transform: scale(1.03);
-}
-
-.feedback {
-  margin-top: 20px;
-  font-weight: 500;
-  color: #592c82;
-  text-align: center;
 }
 
 /* === LEGENDA === */
 .legend {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   font-size: 13px;
   color: #4a4a4a;
   margin-top: 10px;
+  text-align: left;
 }
 
-.legend li {
-  margin: 2px 0;
+/* === FEEDBACK === */
+.feedback {
+  text-align: center;
+  color: #592c82;
+  font-weight: 500;
+  margin-top: 15px;
 }
 
-/* === RODAPÉ AJUSTADO === */
+/* === RODAPÉ === */
 .footer {
   text-align: center;
-  padding: 20px 10px;
-  background: #f3ecfa;
-  border-top: 2px solid #e2d8f0;
-  width: 100%;
+  padding: 20px 40px;
+  background: #fff;
+  border-top: 1px solid #e0d2f3;
   color: #592c82;
   font-size: 14px;
-  position: relative;
+  font-weight: 500;
+  max-width: 720px;
+  width: 100%;
+  margin: -10px auto 0;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-
+.footer .slogan {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
 .footer a {
   color: #592c82;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+}
+.footer a:hover {
+  color: #7a49b3;
+  text-decoration: underline;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .container { width: 95%; padding: 25px; }
+  h1 { font-size: 22px; }
+  p, label, textarea { font-size: 14px; }
+  .footer { padding: 18px 25px; font-size: 13px; }
+  .footer .slogan { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .container { width: 94%; padding: 20px; border-radius: 10px; }
+  .footer { padding: 16px 20px; border-radius: 0 0 10px 10px; }
+  .footer .slogan { font-size: 14px; margin-bottom: 6px; }
+  button { width: 100%; padding: 14px; font-size: 15px; }
+  textarea { font-size: 13px; }
 }
