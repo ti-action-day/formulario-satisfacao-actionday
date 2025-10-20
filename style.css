@@ -74,7 +74,7 @@ p {
   cursor: pointer;
 }
 
-/* === ESCALAS NUMÉRICAS === */
+/* === ESCALA NUMÉRICA === */
 .scale {
   display: flex;
   justify-content: center;
@@ -111,7 +111,7 @@ p {
   box-shadow: 0 0 0 3px rgba(89, 44, 130, 0.12);
 }
 
-/* === CORES ESCALA 0–10 === */
+/* === CORES ESCALA === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
@@ -142,13 +142,6 @@ p {
   background: #43a047;
   color: #fff;
 }
-
-/* === ESCALA DE FÁBIO (1–5) === */
-.fabioScale input[value="1"]:checked + span { background: #e53935; color: #fff; }
-.fabioScale input[value="2"]:checked + span { background: #fb8c00; color: #fff; }
-.fabioScale input[value="3"]:checked + span { background: #fdd835; color: #333; }
-.fabioScale input[value="4"]:checked + span { background: #81c784; color: #fff; }
-.fabioScale input[value="5"]:checked + span { background: #43a047; color: #fff; }
 
 /* === TEXTAREA === */
 textarea {
@@ -208,14 +201,6 @@ button:active {
   margin: 3px 0;
 }
 
-/* === FEEDBACK === */
-.feedback {
-  text-align: center;
-  color: #592c82;
-  font-weight: 500;
-  margin-top: 15px;
-}
-
 /* === RODAPÉ === */
 .footer {
   text-align: center;
@@ -238,18 +223,7 @@ button:active {
   margin-bottom: 8px;
 }
 
-.footer a {
-  color: #592c82;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.footer a:hover {
-  color: #7a49b3;
-  text-decoration: underline;
-}
-
-/* === RESPONSIVIDADE TABLET === */
+/* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
   .container {
     width: 95%;
@@ -269,45 +243,40 @@ button:active {
     height: 44px;
     font-size: 14px;
   }
-
-  .footer {
-    padding: 18px 28px;
-    font-size: 13px;
-  }
-
-  .footer .slogan {
-    font-size: 15px;
-  }
 }
 
-/* === CORREÇÃO FINAL: ESCALA 0–10 EM LINHA ÚNICA NO MOBILE === */
+/* === MOBILE FINAL === */
 @media (max-width: 480px) {
   .container {
-    width: 94% !important;
-    padding: 24px !important;
-    border-radius: 10px !important;
+    width: 94%;
+    padding: 24px;
+    border-radius: 10px;
   }
 
   .scale {
-    display: flex !important;
-    justify-content: center !important;
+    display: flex;
+    justify-content: flex-start; /* alinha à esquerda */
     align-items: center;
-    gap: 8px !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
-    padding: 6px 0;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 6px 20px; /* garante espaço lateral */
+    margin-left: 0;
+    margin-right: 0;
     -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
 
   .scale label {
-    flex-shrink: 0 !important;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .scale span {
-    width: 42px !important;
-    height: 42px !important;
-    font-size: 14px !important;
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
   }
 
   .scale::-webkit-scrollbar {
@@ -323,16 +292,22 @@ button:active {
     background: transparent;
   }
 
+  /* Garante que o primeiro número nunca seja cortado */
+  .scale::before {
+    content: "";
+    flex: 0 0 12px;
+  }
+
   .question {
-    margin-bottom: 24px !important;
+    margin-bottom: 24px;
   }
 
   h1 {
-    font-size: 20px !important;
+    font-size: 20px;
   }
 
   p, label, textarea {
-    font-size: 14px !important;
+    font-size: 14px;
   }
 
   textarea {
