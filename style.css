@@ -143,7 +143,7 @@ button {
   font-weight: 500;
   transition: all 0.3s ease;
   display: block;
-  margin: 25px auto 0;
+  margin: 20px auto 10px; /* reduzido o espaço extra */
   width: 100%;
   max-width: 400px;
 }
@@ -156,13 +156,13 @@ button:hover {
 /* === RODAPÉ === */
 .footer {
   text-align: center;
-  padding: 20px 10px;
+  padding: 16px 10px;
   background: #f3ecfa;
   border-top: 2px solid #e2d8f0;
   color: #592c82;
   font-size: 14px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -190,7 +190,7 @@ button:hover {
     border-radius: 0;
     padding: 20px;
     box-shadow: none;
-    padding-bottom: 120px; /* ajustado: menos espaço entre botão e rodapé */
+    padding-bottom: 90px; /* reduzido: espaço exato entre botão e rodapé */
   }
 
   .question {
@@ -254,13 +254,13 @@ button:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 22px 10px;
+    padding: 18px 10px;
     font-size: 13px;
     background: #f3ecfa;
     border-top: 2px solid #e2d8f0;
     color: #592c82;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     z-index: 1;
   }
 }
