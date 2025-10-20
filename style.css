@@ -196,7 +196,7 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE (versão ajustada) === */
+/* === MOBILE (versão final corrigida) === */
 @media (max-width: 480px) {
   html, body {
     height: 100%;
@@ -210,13 +210,14 @@ button:hover {
     border-radius: 0;
     padding: 20px;
     box-shadow: none;
-    padding-bottom: 100px; /* 👈 garante que o rodapé não sobreponha o conteúdo */
+    padding-bottom: 140px; /* 👈 adiciona espaço suficiente acima do rodapé */
   }
 
   .question {
     margin-bottom: 28px;
   }
 
+  /* Escala horizontal rolável */
   .scale {
     display: flex;
     flex-wrap: nowrap;
@@ -230,6 +231,7 @@ button:hover {
     -webkit-overflow-scrolling: touch;
     background: #fdfcff;
     border-radius: 8px;
+    position: relative;
   }
 
   .scale label {
@@ -265,13 +267,15 @@ button:hover {
     width: 100%;
     font-size: 15px;
     padding: 14px;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 
-  /* 👇 Rodapé sempre abaixo, com espaço e centralização */
+  /* Rodapé fixo e centralizado */
   .footer {
     padding: 22px 10px;
     font-size: 13px;
-    margin-top: 40px;
+    margin-top: 0;
     background: #f3ecfa;
     border-top: 2px solid #e2d8f0;
     color: #592c82;
