@@ -53,7 +53,7 @@ p {
 
 /* === PERGUNTAS === */
 .question {
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .question label {
@@ -143,7 +143,7 @@ button {
   font-weight: 500;
   transition: all 0.3s ease;
   display: block;
-  margin: 30px auto 0;
+  margin: 25px auto 0;
   width: 100%;
   max-width: 400px;
 }
@@ -162,7 +162,7 @@ button:hover {
   color: #592c82;
   font-size: 14px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -176,7 +176,7 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE (versão final ajustada) === */
+/* === MOBILE === */
 @media (max-width: 480px) {
   html, body {
     height: auto;
@@ -190,14 +190,13 @@ button:hover {
     border-radius: 0;
     padding: 20px;
     box-shadow: none;
-    padding-bottom: 160px; /* espaço para botão e rodapé */
+    padding-bottom: 120px; /* ajustado: menos espaço entre botão e rodapé */
   }
 
   .question {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
-  /* Escala horizontal rolável */
   .scale {
     display: flex;
     flex-wrap: nowrap;
@@ -211,7 +210,6 @@ button:hover {
     -webkit-overflow-scrolling: touch;
     background: #fdfcff;
     border-radius: 8px;
-    position: relative;
   }
 
   .scale label {
@@ -223,7 +221,6 @@ button:hover {
     width: 50px;
     height: 50px;
     font-size: 16px;
-    flex-shrink: 0;
   }
 
   .scale::-webkit-scrollbar {
@@ -247,9 +244,9 @@ button:hover {
     width: 100%;
     font-size: 15px;
     padding: 14px;
-    margin-top: 40px;
+    margin-top: 25px;
     position: relative;
-    z-index: 2; /* garante que o botão fique acima do rodapé */
+    z-index: 2;
   }
 
   .footer {
@@ -263,7 +260,7 @@ button:hover {
     border-top: 2px solid #e2d8f0;
     color: #592c82;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
     z-index: 1;
   }
 }
