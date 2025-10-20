@@ -23,59 +23,40 @@
       <form id="consultoriaForm">
         <!-- PERGUNTA 1 -->
         <div class="question">
-          <label>1. Como você avalia o atendimento recebido?</label>
-          <div class="options">
-            <label><input type="radio" name="atendimento" value="Excelente" required /></label>
-            <label><input type="radio" name="atendimento" value="Bom" /></label>
-            <label><input type="radio" name="atendimento" value="Regular" /></label>
-            <label><input type="radio" name="atendimento" value="Ruim" /></label>
+          <label>
+            1. O quão satisfeito você está com a consultoria fornecida pela
+            Action Day?
+          </label>
+          <div class="scale">
+            <label><input type="radio" name="satisfacao" value="0" required /><span>0</span></label>
+            <label><input type="radio" name="satisfacao" value="1" /><span>1</span></label>
+            <label><input type="radio" name="satisfacao" value="2" /><span>2</span></label>
+            <label><input type="radio" name="satisfacao" value="3" /><span>3</span></label>
+            <label><input type="radio" name="satisfacao" value="4" /><span>4</span></label>
+            <label><input type="radio" name="satisfacao" value="5" /><span>5</span></label>
+            <label><input type="radio" name="satisfacao" value="6" /><span>6</span></label>
+            <label><input type="radio" name="satisfacao" value="7" /><span>7</span></label>
+            <label><input type="radio" name="satisfacao" value="8" /><span>8</span></label>
+            <label><input type="radio" name="satisfacao" value="9" /><span>9</span></label>
+            <label><input type="radio" name="satisfacao" value="10" /><span>10</span></label>
           </div>
-        </div>
 
-        <!-- PERGUNTA 2 -->
-        <div class="question">
-          <label>2. O consultor compreendeu bem as necessidades do seu negócio?</label>
-          <div class="options">
-            <label><input type="radio" name="compreensao" value="Sim" required />Sim</label>
-            <label><input type="radio" name="compreensao" value="Parcialmente" />Parcialmente</label>
-            <label><input type="radio" name="compreensao" value="Não" />Não</label>
-          </div>
-        </div>
-
-        <!-- PERGUNTA 3 -->
-        <div class="question">
-          <label>3. Após a consultoria, você sente que está mais preparado para tomar decisões estratégicas no seu negócio?</label>
-          <div class="options">
-            <label><input type="radio" name="preparado" value="Sim" required />Sim</label>
-            <label><input type="radio" name="preparado" value="Parcialmente" />Parcialmente</label>
-            <label><input type="radio" name="preparado" value="Ainda não" />Ainda não</label>
-          </div>
-          <textarea placeholder="Espaço para escrever (opcional)"></textarea>
-        </div>
-
-        <!-- PERGUNTA 4 -->
-        <div class="question">
-          <label>4. O quanto você acredita que as orientações do consultor Fábio contribuíram para gerar novas ideias e melhorias no seu negócio?</label>
-          <div class="scale fabioScale">
-            <label><input type="radio" name="fabio" value="1" required /><span>1</span></label>
-            <label><input type="radio" name="fabio" value="2" /><span>2</span></label>
-            <label><input type="radio" name="fabio" value="3" /><span>3</span></label>
-            <label><input type="radio" name="fabio" value="4" /><span>4</span></label>
-            <label><input type="radio" name="fabio" value="5" /><span>5</span></label>
-          </div>
+          <!-- LEGENDA SIMPLIFICADA -->
           <ul class="legend">
-            <li>5 Muito satisfeito</li>
-            <li>4 Satisfeito</li>
-            <li>3 Neutro</li>
-            <li>2 Insatisfeito</li>
-            <li>1 Muito insatisfeito</li>
+            <li><strong>9–10</strong> Muito satisfeito</li>
+            <li><strong>7–8</strong> Satisfeito</li>
+            <li><strong>5–6</strong> Indiferente</li>
+            <li><strong>3–4</strong> Insatisfeito</li>
+            <li><strong>0–2</strong> Muito insatisfeito</li>
           </ul>
+
+          <textarea
+            placeholder="O que mais influenciou na sua nota? (opcional)"
+          ></textarea>
         </div>
 
         <!-- BOTÃO -->
         <button type="submit">Enviar Respostas</button>
-
-        <!-- FEEDBACK -->
         <p class="feedback" id="feedbackMsg"></p>
       </form>
     </div>
