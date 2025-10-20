@@ -103,7 +103,7 @@ p {
   box-shadow: 0 0 0 3px rgba(89,44,130,.12);
 }
 
-/* === CORES PARA ESCALA 0–10 === */
+/* === CORES ESCALA 0–10 === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
@@ -135,7 +135,7 @@ p {
   color: #fff;
 }
 
-/* === CORES ESCALA FÁBIO (1–5) === */
+/* === ESCALA FÁBIO (1–5) === */
 .fabioScale input[value="1"]:checked + span { background: #e53935; color: #fff; }
 .fabioScale input[value="2"]:checked + span { background: #fb8c00; color: #fff; }
 .fabioScale input[value="3"]:checked + span { background: #fdd835; color: #333; }
@@ -283,37 +283,37 @@ button:active {
     border-radius: 10px;
   }
 
-  /* Escala em grid para caber melhor no mobile */
+  /* Escala 0–10 dividida em duas linhas (5 e 5) */
   .scale {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     justify-items: center;
-    row-gap: 10px;
+    gap: 10px 6px;
   }
 
   .scale span {
-    width: 38px;
-    height: 38px;
-    font-size: 13px;
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
   }
 
   .legend {
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 13px;
   }
 
   textarea {
-    margin-top: 12px;
     font-size: 13px;
+    margin-top: 12px;
   }
 
   .question {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
   }
 
   .logo img {
-    width: 220px;
+    width: 200px;
   }
 
   h1 {
