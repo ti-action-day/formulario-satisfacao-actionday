@@ -4,10 +4,13 @@ body {
   background-color: #f8f6fb;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* === CONTAINER CENTRAL === */
+/* === CONTAINER PRINCIPAL === */
 .container {
   background: #ffffff;
   padding: 40px;
@@ -16,8 +19,9 @@ body {
   max-width: 720px;
   width: 90%;
   margin: 40px auto;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* === LOGO === */
@@ -42,7 +46,7 @@ body {
   font-weight: 500;
 }
 
-/* === TÍTULOS === */
+/* === TÍTULOS E TEXTOS === */
 h1 {
   color: #592c82;
   font-size: 26px;
@@ -60,10 +64,9 @@ p {
 /* === PERGUNTAS === */
 .question {
   margin-bottom: 30px;
-  position: relative;
 }
 
-/* === ESCALA (0–10) === */
+/* === ESCALA VISUAL (0–10 e 0–5) === */
 .scale {
   display: flex;
   justify-content: center;
@@ -94,7 +97,6 @@ p {
   transition: all 0.3s ease;
 }
 
-/* === INTERAÇÃO === */
 .scale label:hover span {
   transform: scale(1.07);
 }
@@ -104,7 +106,7 @@ p {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
 
-/* === CORES ESCALA === */
+/* === CORES DA ESCALA === */
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span {
@@ -197,8 +199,8 @@ button:hover {
   border-top: 2px solid #e2d8f0;
   color: #592c82;
   font-size: 14px;
-  position: relative;
-  margin-top: 40px;
+  width: 100%;
+  margin-top: auto;
 }
 
 .footer a {
@@ -211,41 +213,37 @@ button:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE FIXO === */
+/* === MOBILE (correção final) === */
 @media (max-width: 480px) {
   html, body {
     height: 100%;
-    overflow: hidden; /* impede rolagem vertical */
+    overflow-y: auto; /* permite rolagem vertical */
+    overflow-x: hidden;
   }
 
   .container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
+    min-height: 100vh;
+    padding: 28px 20px;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
   }
 
-  .question {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* só os números rolam */
+  /* Só os números deslizam horizontalmente */
   .scale {
     display: flex;
-    gap: 12px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    justify-content: flex-start;
+    white-space: nowrap;
     padding: 10px 16px;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 16px;
     -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
     background: linear-gradient(90deg, #faf7fd 0%, #ffffff 100%);
-    border-radius: 10px;
   }
 
   .scale::before {
@@ -259,13 +257,11 @@ button:hover {
   }
 
   .scale span {
-    width: 48px;
-    height: 48px;
-    font-size: 16px;
-    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 15px;
   }
 
-  /* barra de rolagem leve */
   .scale::-webkit-scrollbar {
     height: 4px;
   }
@@ -295,12 +291,10 @@ button:hover {
   }
 
   .footer {
-    text-align: center;
-    justify-self: flex-end;
-    padding: 16px 20px;
-    font-size: 13px;
-    width: 100%;
     position: relative;
     bottom: 0;
+    padding: 16px 10px;
+    font-size: 13px;
+    margin-top: 20px;
   }
 }
