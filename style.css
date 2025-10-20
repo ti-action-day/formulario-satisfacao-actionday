@@ -161,6 +161,36 @@ textarea:focus {
 .scale span:hover {
   transform: scale(1.08);
 }
+
+/* ESCALA GERAL (0–10) HOVER */
+.scale input[value="0"] + span:hover,
+.scale input[value="1"] + span:hover,
+.scale input[value="2"] + span:hover {
+  background-color: #e53935;
+  color: #fff;
+}
+.scale input[value="3"] + span:hover,
+.scale input[value="4"] + span:hover {
+  background-color: #fb8c00;
+  color: #fff;
+}
+.scale input[value="5"] + span:hover,
+.scale input[value="6"] + span:hover {
+  background-color: #fbc02d;
+  color: #fff;
+}
+.scale input[value="7"] + span:hover,
+.scale input[value="8"] + span:hover {
+  background-color: #43a047;
+  color: #fff;
+}
+.scale input[value="9"] + span:hover,
+.scale input[value="10"] + span:hover {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+/* QUESTÃO 4 – ESCALA 1–5 HOVER */
 .question-4 .scale input[value="1"] + span:hover,
 .question-4 .scale input[value="2"] + span:hover {
   background-color: #e53935;
