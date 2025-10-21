@@ -95,7 +95,7 @@ p {
   transition: all 0.25s ease;
 }
 
-/* === CORES HOVER === */
+/* === CORES DE HOVER === */
 .fabioScale input[value="1"] + span:hover { background-color: #ef5350; color: #fff; }
 .fabioScale input[value="2"] + span:hover { background-color: #ffa726; color: #fff; }
 .fabioScale input[value="3"] + span:hover { background-color: #fff176; color: #333; }
@@ -191,18 +191,25 @@ button:hover {
 
 /* === RODAPÉ === */
 .footer {
-  text-align: center;
-  padding: 20px 10px;
+  width: 100%;
   background: #f3ecfa;
   border-top: 2px solid #e2d8f0;
   color: #592c82;
-  font-size: 13px;
-  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  padding: 25px 10px;
   box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 .footer a {
   color: #592c82;
   text-decoration: none;
+  font-weight: 500;
 }
 .footer a:hover {
   text-decoration: underline;
@@ -255,5 +262,6 @@ button:hover {
 
   .footer {
     font-size: 12px;
+    padding: 20px 10px;
   }
 }
