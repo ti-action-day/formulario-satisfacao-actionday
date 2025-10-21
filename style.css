@@ -3,7 +3,12 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f6fb;
   margin: 0;
-  padding: 40px 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   animation: fadeIn 0.6s ease-in;
 }
 
@@ -13,43 +18,50 @@ body {
   padding: 40px;
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
   max-width: 720px;
-  width: 90%;
-  margin: 0 auto 60px auto;
+  flex: 1;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 /* === LOGO === */
 .logo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .logo img {
-  width: 360px;
+  width: 320px;
   height: auto;
+  max-width: 85%;
 }
 
 /* === TÍTULOS === */
 h1 {
   color: #592c82;
   text-align: center;
-  font-size: 26px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 p {
   color: #4a4a4a;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.4;
 }
 
 /* === PERGUNTAS === */
 .question {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 .question label {
   font-weight: 600;
   color: #592c82;
   display: block;
   margin-bottom: 10px;
+  font-size: 16px;
 }
 
 /* === ESCALAS === */
@@ -74,6 +86,7 @@ p {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 15px;
 }
 
 /* === HOVER EFFECT === */
@@ -82,7 +95,7 @@ p {
   transition: all 0.25s ease;
 }
 
-/* Cores de hover */
+/* === CORES HOVER === */
 .fabioScale input[value="1"] + span:hover { background-color: #ef5350; color: #fff; }
 .fabioScale input[value="2"] + span:hover { background-color: #ffa726; color: #fff; }
 .fabioScale input[value="3"] + span:hover { background-color: #fff176; color: #333; }
@@ -93,7 +106,6 @@ p {
 .scale input:checked + span {
   color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.15);
   animation: pulseGlow 1.3s infinite alternate ease-in-out;
 }
 
@@ -154,13 +166,15 @@ button {
   background: #592c82;
   color: #fff;
   border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
+  padding: 14px 26px;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
   display: block;
-  margin: 20px auto 0;
+  margin: 30px auto 0;
+  width: 100%;
+  max-width: 400px;
 }
 button:hover {
   background: #452165;
@@ -172,6 +186,7 @@ button:hover {
   text-align: center;
   margin-top: 20px;
   color: #592c82;
+  font-size: 15px;
 }
 
 /* === RODAPÉ === */
@@ -181,7 +196,9 @@ button:hover {
   background: #f3ecfa;
   border-top: 2px solid #e2d8f0;
   color: #592c82;
-  font-size: 14px;
+  font-size: 13px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .footer a {
   color: #592c82;
@@ -200,4 +217,43 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .container {
+    border-radius: 0;
+    padding: 25px 18px;
+    box-shadow: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .question label {
+    font-size: 15px;
+  }
+
+  .scale span {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
 }
