@@ -1,4 +1,9 @@
 /* === BASE === */
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f6fb;
@@ -190,9 +195,7 @@ button:hover {
 /* === RODAPÉ === */
 .footer {
   position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
   background: linear-gradient(to top, #f3ecfa 90%, #f8f6fb 100%);
   border-top: 2px solid #e2d8f0;
   color: #592c82;
