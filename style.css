@@ -1,230 +1,177 @@
-/* === BASE GERAL === */
+/* === BASE === */
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(180deg, #f9f6fc 0%, #ffffff 100%);
-  color: #2e2b2e;
+  background-color: #f8f6fb;
   margin: 0;
-  padding: 0;
+  padding: 40px 0;
+  animation: fadeIn 0.6s ease-in;
 }
 
 /* === CONTAINER === */
 .container {
-  max-width: 850px;
-  background-color: #fff;
-  margin: 60px auto;
-  padding: 50px 60px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(89, 44, 130, 0.12);
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 720px;
+  width: 90%;
+  margin: 0 auto 60px auto;
 }
 
 /* === LOGO === */
 .logo {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .logo img {
-  width: 160px;
-}
-.logo p {
-  color: #592c82;
-  font-weight: 500;
-  font-size: 15px;
+  width: 360px;
+  height: auto;
 }
 
 /* === TÍTULOS === */
 h1 {
-  text-align: center;
   color: #592c82;
+  text-align: center;
   font-size: 26px;
   margin-bottom: 10px;
 }
 p {
+  color: #4a4a4a;
   text-align: center;
-  color: #444;
   margin-bottom: 25px;
-  font-size: 16px;
 }
 
 /* === PERGUNTAS === */
 .question {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 .question label {
-  display: block;
   font-weight: 600;
-  margin-bottom: 12px;
   color: #592c82;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* === ESCALAS === */
+.scale {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.scale input {
+  display: none;
+}
+.scale span {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* === HOVER EFFECT === */
+.fabioScale label:hover span {
+  transform: scale(1.08);
+  transition: all 0.25s ease;
+}
+
+/* Cores de hover */
+.fabioScale input[value="1"] + span:hover { background-color: #ef5350; color: #fff; }
+.fabioScale input[value="2"] + span:hover { background-color: #ffa726; color: #fff; }
+.fabioScale input[value="3"] + span:hover { background-color: #fff176; color: #333; }
+.fabioScale input[value="4"] + span:hover { background-color: #a5d6a7; color: #fff; }
+.fabioScale input[value="5"] + span:hover { background-color: #66bb6a; color: #fff; }
+
+/* === SELEÇÃO === */
+.scale input:checked + span {
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.15);
+  animation: pulseGlow 1.3s infinite alternate ease-in-out;
+}
+
+/* === CORES SELECIONADAS === */
+.fabioScale input[value="1"]:checked + span { background: #E53935; box-shadow: 0 0 14px #E53935; }
+.fabioScale input[value="2"]:checked + span { background: #FB8C00; box-shadow: 0 0 14px #FB8C00; }
+.fabioScale input[value="3"]:checked + span { background: #FDD835; color:#333; box-shadow: 0 0 14px #FDD835; }
+.fabioScale input[value="4"]:checked + span { background: #81C784; box-shadow: 0 0 14px #81C784; }
+.fabioScale input[value="5"]:checked + span { background: #43A047; box-shadow: 0 0 14px #43A047; }
+
+/* === LEGENDA === */
+.legend {
+  list-style: none;
+  padding-left: 0;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.color-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
 /* === TEXTAREA === */
 textarea {
   width: 100%;
-  border: 1px solid #cbb8e5;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 15px;
-  resize: none;
-  outline: none;
-  transition: border 0.3s;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d9cfe8;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: border-color 0.3s;
 }
 textarea:focus {
   border-color: #592c82;
+  outline: none;
 }
 
-/* === ESCALA === */
-.scale {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
-  justify-items: center;
-  align-items: center;
-  background: #f7f3fc;
-  border-radius: 12px;
-  padding: 15px;
-  gap: 12px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.scale label {
-  cursor: pointer;
-}
-.scale span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 55px;
-  height: 55px;
-  background: #e8e3f0;
-  border-radius: 50%;
-  font-weight: 600;
+/* === OPÇÕES === */
+.options label {
+  display: block;
+  margin: 5px 0;
   color: #2e2b2e;
-  transition: all 0.25s ease;
-  font-size: 17px;
-}
-.scale input[type="radio"] {
-  display: none;
-}
-
-/* === ESCALA 0–10 === */
-.scale input[value="0"]:checked + span,
-.scale input[value="1"]:checked + span,
-.scale input[value="2"]:checked + span {
-  background-color: #e53935;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
-}
-.scale input[value="3"]:checked + span,
-.scale input[value="4"]:checked + span {
-  background-color: #fb8c00;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(251, 140, 0, 0.5);
-}
-.scale input[value="5"]:checked + span,
-.scale input[value="6"]:checked + span {
-  background-color: #fbc02d;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(251, 192, 45, 0.5);
-}
-.scale input[value="7"]:checked + span,
-.scale input[value="8"]:checked + span {
-  background-color: #43a047;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(67, 160, 71, 0.5);
-}
-.scale input[value="9"]:checked + span,
-.scale input[value="10"]:checked + span {
-  background-color: #2e7d32;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
-}
-
-/* === QUESTÃO 4 – ESCALA 1–5 COM VERDE A PARTIR DO 4 === */
-.question-4 .scale input[value="1"]:checked + span,
-.question-4 .scale input[value="2"]:checked + span {
-  background-color: #e53935 !important;
-  color: #fff !important;
-  box-shadow: 0 0 10px rgba(229, 57, 53, 0.5) !important;
-}
-.question-4 .scale input[value="3"]:checked + span {
-  background-color: #fbc02d !important;
-  color: #fff !important;
-  box-shadow: 0 0 10px rgba(251, 192, 45, 0.5) !important;
-}
-.question-4 .scale input[value="4"]:checked + span,
-.question-4 .scale input[value="5"]:checked + span {
-  background-color: #2e7d32 !important;
-  color: #fff !important;
-  box-shadow: 0 0 10px rgba(46, 125, 50, 0.5) !important;
-}
-
-/* === HOVER COLORIDO === */
-.scale span:hover {
-  transform: scale(1.08);
-}
-
-/* ESCALA GERAL (0–10) HOVER */
-.scale input[value="0"] + span:hover,
-.scale input[value="1"] + span:hover,
-.scale input[value="2"] + span:hover {
-  background-color: #e53935;
-  color: #fff;
-}
-.scale input[value="3"] + span:hover,
-.scale input[value="4"] + span:hover {
-  background-color: #fb8c00;
-  color: #fff;
-}
-.scale input[value="5"] + span:hover,
-.scale input[value="6"] + span:hover {
-  background-color: #fbc02d;
-  color: #fff;
-}
-.scale input[value="7"] + span:hover,
-.scale input[value="8"] + span:hover {
-  background-color: #43a047;
-  color: #fff;
-}
-.scale input[value="9"] + span:hover,
-.scale input[value="10"] + span:hover {
-  background-color: #2e7d32;
-  color: #fff;
-}
-
-/* QUESTÃO 4 – ESCALA 1–5 HOVER */
-.question-4 .scale input[value="1"] + span:hover,
-.question-4 .scale input[value="2"] + span:hover {
-  background-color: #e53935;
-  color: #fff;
-}
-.question-4 .scale input[value="3"] + span:hover {
-  background-color: #fbc02d;
-  color: #fff;
-}
-.question-4 .scale input[value="4"] + span:hover,
-.question-4 .scale input[value="5"] + span:hover {
-  background-color: #2e7d32;
-  color: #fff;
+  cursor: pointer;
 }
 
 /* === BOTÃO === */
 button {
-  background-color: #592c82;
-  color: #ffffff;
+  background: #592c82;
+  color: #fff;
   border: none;
-  padding: 14px 24px;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 6px;
   font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
   display: block;
-  margin: 25px auto 15px;
-  width: 100%;
-  max-width: 420px;
+  margin: 20px auto 0;
 }
 button:hover {
-  background-color: #452165;
+  background: #452165;
   transform: scale(1.03);
+}
+
+/* === FEEDBACK === */
+.feedback {
+  text-align: center;
+  margin-top: 20px;
+  color: #592c82;
 }
 
 /* === RODAPÉ === */
@@ -235,63 +182,22 @@ button:hover {
   border-top: 2px solid #e2d8f0;
   color: #592c82;
   font-size: 14px;
-  width: 100%;
-  margin-top: 30px;
 }
 .footer a {
   color: #592c82;
   text-decoration: none;
-  font-weight: 500;
 }
 .footer a:hover {
   text-decoration: underline;
 }
 
-/* === MOBILE === */
-@media (max-width: 480px) {
-  html, body {
-    height: auto;
-    overflow-x: hidden;
-    background: #ffffff;
-  }
-  .container {
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 25px 18px 90px;
-    min-height: 100vh;
-  }
-  h1 {
-    font-size: 20px;
-  }
-  p, label, textarea {
-    font-size: 14px;
-  }
-  .question {
-    margin-bottom: 25px;
-  }
-  .scale {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-start;
-    padding: 12px 16px;
-    overflow-x: auto;
-  }
-  .scale span {
-    width: 50px;
-    height: 50px;
-    font-size: 16px;
-  }
-  button {
-    width: 100%;
-    font-size: 15px;
-    padding: 14px;
-    margin-top: 20px;
-  }
-  .footer {
-    position: relative;
-    padding: 18px 10px;
-    margin-top: 5px;
-    font-size: 13px;
-  }
+/* === ANIMAÇÕES === */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px rgba(89,44,130,0.4); }
+  100% { box-shadow: 0 0 20px rgba(89,44,130,0.8); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

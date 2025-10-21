@@ -1,49 +1,42 @@
-function getParam(param) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(param) || "";
-}
+document.addEventListener("DOMContentLoaded", function () {
+  function getParam(param) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param) || "";
+  }
 
-let clienteID = "";
-let produtoID = "";
+  const cliente = getParam("c");
+  const produto = getParam("p");
 
-window.addEventListener("DOMContentLoaded", () => {
-  clienteID = getParam("c");
-  produtoID = getParam("p");
+  document.getElementById("cliente").value = cliente;
+  document.getElementById("produto").value = produto;
 
-  console.table({
-    "🧾 ID do cliente": clienteID || "(vazio)",
-    "📦 Produto ID": produtoID || "(vazio)",
-  });
-});
-
-document.getElementById("consultoriaForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
+  const form = document.getElementById("consultoriaForm");
   const feedback = document.getElementById("feedbackMsg");
-  feedback.textContent = "⏳ Enviando respostas...";
-  feedback.style.color = "#4B5563";
 
-  const formData = new FormData(this);
-  formData.append("cliente", clienteID);
-  formData.append("produto", produtoID);
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    feedback.textContent = "⏳ Enviando respostas...";
+    feedback.style.color = "#555";
 
-  try {
-    const res = await fetch("https://hook.us1.make.com/jhgz7ulsjpeqxejide9bmyeiu97ncbxs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(formData.entries())),
-    });
+    const data = Object.fromEntries(new FormData(form).entries());
 
-    if (res.ok) {
-      feedback.textContent = "🎉 Respostas enviadas com sucesso! Obrigado por participar.";
-      feedback.style.color = "#16a34a";
-      this.reset();
-    } else {
-      feedback.textContent = "⚠️ Ocorreu um erro ao enviar. Tente novamente.";
+    try {
+      const res = await fetch("https://hook.us1.make.com/jhgz7ulsjpeqxejide9bmyeiu97ncbxs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        feedback.textContent = "🎉 Respostas enviadas com sucesso! Obrigado por participar.";
+        feedback.style.color = "#16a34a";
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      feedback.textContent = "⚠️ Erro ao enviar. Tente novamente.";
       feedback.style.color = "#dc2626";
     }
-  } catch (error) {
-    console.error("Erro ao enviar:", error);
-    feedback.textContent = "❌ Erro de conexão. Verifique sua internet.";
-    feedback.style.color = "#dc2626";
-  }
+  });
 });
