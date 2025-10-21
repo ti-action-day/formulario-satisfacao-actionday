@@ -32,9 +32,9 @@ body {
   margin-bottom: 15px;
 }
 .logo img {
-  width: 320px;
+  width: 340px;
   height: auto;
-  max-width: 85%;
+  max-width: 90%;
 }
 
 /* === TÍTULOS === */
@@ -90,17 +90,18 @@ p {
 }
 
 /* === HOVER EFFECT === */
-.fabioScale label:hover span {
+.scale span:hover {
   transform: scale(1.08);
+  filter: brightness(1.1);
   transition: all 0.25s ease;
 }
 
 /* === CORES DE HOVER === */
-.fabioScale input[value="1"] + span:hover { background-color: #ef5350; color: #fff; }
-.fabioScale input[value="2"] + span:hover { background-color: #ffa726; color: #fff; }
-.fabioScale input[value="3"] + span:hover { background-color: #fff176; color: #333; }
-.fabioScale input[value="4"] + span:hover { background-color: #a5d6a7; color: #fff; }
-.fabioScale input[value="5"] + span:hover { background-color: #66bb6a; color: #fff; }
+.scale input[value="1"] + span:hover { background-color: #ef5350; color: #fff; }
+.scale input[value="2"] + span:hover { background-color: #ffa726; color: #fff; }
+.scale input[value="3"] + span:hover { background-color: #fff176; color: #333; }
+.scale input[value="4"] + span:hover { background-color: #a5d6a7; color: #fff; }
+.scale input[value="5"] + span:hover { background-color: #66bb6a; color: #fff; }
 
 /* === SELEÇÃO === */
 .scale input:checked + span {
@@ -110,11 +111,11 @@ p {
 }
 
 /* === CORES SELECIONADAS === */
-.fabioScale input[value="1"]:checked + span { background: #E53935; box-shadow: 0 0 14px #E53935; }
-.fabioScale input[value="2"]:checked + span { background: #FB8C00; box-shadow: 0 0 14px #FB8C00; }
-.fabioScale input[value="3"]:checked + span { background: #FDD835; color:#333; box-shadow: 0 0 14px #FDD835; }
-.fabioScale input[value="4"]:checked + span { background: #81C784; box-shadow: 0 0 14px #81C784; }
-.fabioScale input[value="5"]:checked + span { background: #43A047; box-shadow: 0 0 14px #43A047; }
+.scale input[value="1"]:checked + span { background: #E53935; box-shadow: 0 0 14px #E53935; }
+.scale input[value="2"]:checked + span { background: #FB8C00; box-shadow: 0 0 14px #FB8C00; }
+.scale input[value="3"]:checked + span { background: #FDD835; color:#333; box-shadow: 0 0 14px #FDD835; }
+.scale input[value="4"]:checked + span { background: #81C784; box-shadow: 0 0 14px #81C784; }
+.scale input[value="5"]:checked + span { background: #43A047; box-shadow: 0 0 14px #43A047; }
 
 /* === LEGENDA === */
 .legend {
@@ -192,25 +193,32 @@ button:hover {
 /* === RODAPÉ === */
 .footer {
   width: 100%;
-  background: #f3ecfa;
+  background: linear-gradient(to top, #f3ecfa 90%, #f8f6fb 100%);
   border-top: 2px solid #e2d8f0;
   color: #592c82;
   font-size: 14px;
   text-align: center;
   padding: 25px 10px;
   box-sizing: border-box;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 4px 0;
+  line-height: 1.4;
 }
 
 .footer a {
   color: #592c82;
   text-decoration: none;
   font-weight: 500;
+  margin-left: 4px;
 }
+
 .footer a:hover {
   text-decoration: underline;
 }
