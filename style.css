@@ -31,7 +31,7 @@ body {
 /* === LOGO === */
 .logo {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .logo img {
   width: 340px;
@@ -74,50 +74,55 @@ p {
   gap: 10px;
   margin-top: 10px;
 }
+
 .scale input {
   display: none;
 }
+
 .scale span {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background-color: #e0e0e0;
+  background-color: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   font-size: 15px;
 }
 
-/* === HOVER EFFECT === */
-.scale span:hover {
-  transform: scale(1.08);
-  filter: brightness(1.1);
-  transition: all 0.25s ease;
-}
+/* === BORDAS FIXAS === */
+.scale input[value="1"] + span { border: 2px solid #E53935; }
+.scale input[value="2"] + span { border: 2px solid #FB8C00; }
+.scale input[value="3"] + span { border: 2px solid #FDD835; }
+.scale input[value="4"] + span { border: 2px solid #81C784; }
+.scale input[value="5"] + span { border: 2px solid #43A047; }
 
-/* === CORES DE HOVER === */
-.scale input[value="1"] + span:hover { background-color: #ef5350; color: #fff; }
-.scale input[value="2"] + span:hover { background-color: #ffa726; color: #fff; }
-.scale input[value="3"] + span:hover { background-color: #fff176; color: #333; }
-.scale input[value="4"] + span:hover { background-color: #a5d6a7; color: #fff; }
-.scale input[value="5"] + span:hover { background-color: #66bb6a; color: #fff; }
+/* === HOVER COM BRILHO LEVE === */
+.scale input[value="1"] + span:hover,
+.scale input[value="2"] + span:hover,
+.scale input[value="3"] + span:hover,
+.scale input[value="4"] + span:hover,
+.scale input[value="5"] + span:hover {
+  box-shadow: 0 0 10px rgba(89, 44, 130, 0.3);
+  transform: scale(1.05);
+}
 
 /* === SELEÇÃO === */
 .scale input:checked + span {
   color: #fff;
   transform: scale(1.1);
-  animation: pulseGlow 1.3s infinite alternate ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
 /* === CORES SELECIONADAS === */
-.scale input[value="1"]:checked + span { background: #E53935; box-shadow: 0 0 14px #E53935; }
-.scale input[value="2"]:checked + span { background: #FB8C00; box-shadow: 0 0 14px #FB8C00; }
-.scale input[value="3"]:checked + span { background: #FDD835; color:#333; box-shadow: 0 0 14px #FDD835; }
-.scale input[value="4"]:checked + span { background: #81C784; box-shadow: 0 0 14px #81C784; }
-.scale input[value="5"]:checked + span { background: #43A047; box-shadow: 0 0 14px #43A047; }
+.scale input[value="1"]:checked + span { background: #E53935; }
+.scale input[value="2"]:checked + span { background: #FB8C00; }
+.scale input[value="3"]:checked + span { background: #FDD835; color:#333; }
+.scale input[value="4"]:checked + span { background: #81C784; }
+.scale input[value="5"]:checked + span { background: #43A047; }
 
 /* === LEGENDA === */
 .legend {
@@ -250,11 +255,6 @@ button:hover {
 }
 
 /* === ANIMAÇÕES === */
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(89,44,130,0.4); }
-  100% { box-shadow: 0 0 20px rgba(89,44,130,0.8); }
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
