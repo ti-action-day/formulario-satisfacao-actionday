@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Satisfação - Action Day</title>
+  <meta name="description" content="Formulário de satisfação da consultoria Action Day Digital — sua opinião é essencial para continuarmos crescendo juntos.">
+
+  <!-- ✅ Redirecionamento inteligente (não quebra no localhost) -->
+  <script>
+    const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+    if (!isLocal && (window.location.pathname === "/" || window.location.pathname === "/index.html")) {
+      window.location.replace("/c-sat/");
+    }
+  </script>
 
   <!-- Google Tag Manager -->
   <script>
@@ -17,6 +26,7 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
@@ -25,13 +35,13 @@
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <div class="container">
+  <main class="container">
     <div class="logo">
-      <img src="logo.png" alt="Action Day Logo">
+      <img src="logo.png" alt="Logo Action Day Digital">
     </div>
 
     <h1>Formulário de Satisfação - Consultoria</h1>
-    <p>Sua opinião é essencial para continuarmos melhorando e gerando mais resultados para o seu negócio 💜</p>
+    <p class="subtitle">Sua opinião é essencial para continuarmos melhorando e gerando mais resultados para o seu negócio 💜</p>
 
     <form id="consultoriaForm">
       <!-- Pergunta 1 -->
@@ -92,15 +102,17 @@
       <button type="submit">Enviar Respostas</button>
       <div id="feedbackMsg" class="feedback"></div>
     </form>
-  </div>
+  </main>
 
-  <!-- RODAPÉ -->
-  <div class="footer-wrapper">
-    <footer class="footer">
-      <p>© 2025 <strong>Action Day Digital</strong> — Estratégia, Tecnologia e Crescimento 🚀</p>
-      <p>Todos os direitos reservados | <a href="https://actiondaydigital.com.br" target="_blank">actiondaydigital.com.br</a></p>
-    </footer>
-  </div>
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>© 2025 <strong>Action Day Digital</strong> — Estratégia, Tecnologia e Crescimento 🚀</p>
+    <p>Todos os direitos reservados | 
+      <a href="https://actiondaydigital.com.br" target="_blank" rel="noopener noreferrer">
+        actiondaydigital.com.br
+      </a>
+    </p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
