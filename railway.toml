@@ -1,6 +1,8 @@
-[service]
-name = "formulario-satisfacao-actionday"
-start = "npx serve ."
+[build]
+builder = "NIXPACKS"
 
-[env]
-PORT = "8080"
+[deploy]
+startCommand = "npx serve ."
+
+[static]
+public = "."
