@@ -1,5 +1,6 @@
-[build]
-builder = "static"
+[service]
+name = "formulario-satisfacao-actionday"
+start = "npx serve ."
 
-[static]
-publish = "."
+[env]
+PORT = "8080"
