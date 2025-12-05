@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Satisfação - Action Day</title>
+
+  <meta name="description" content="Formulário de satisfação da consultoria Action Day Digital — sua opinião é essencial para continuarmos crescendo juntos.">
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PJHGL693');
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- GTM noscript -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJHGL693"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <main class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo.png" alt="Logo Action Day Digital">
+    </div>
+
+    <h1>Formulário de Satisfação</h1>
+    <p class="subtitle">Sua opinião é essencial para continuarmos melhorando e gerando mais resultados para o seu negócio 💜</p>
+
+    <form id="consultoriaForm">
+
+      <!-- PERGUNTA 1 -->
+      <div class="question">
+        <label>1. De 0 a 10, qual a chance de você indicar a Action Day para seu amigo, familiar ou colega de trabalho?</label>
+
+        <div class="scale nps-scale">
+          <label><input type="radio" name="nps" value="0"><span>0</span></label>
+          <label><input type="radio" name="nps" value="1"><span>1</span></label>
+          <label><input type="radio" name="nps" value="2"><span>2</span></label>
+          <label><input type="radio" name="nps" value="3"><span>3</span></label>
+          <label><input type="radio" name="nps" value="4"><span>4</span></label>
+          <label><input type="radio" name="nps" value="5"><span>5</span></label>
+          <label><input type="radio" name="nps" value="6"><span>6</span></label>
+          <label><input type="radio" name="nps" value="7"><span>7</span></label>
+          <label><input type="radio" name="nps" value="8"><span>8</span></label>
+          <label><input type="radio" name="nps" value="9"><span>9</span></label>
+          <label><input type="radio" name="nps" value="10"><span>10</span></label>
+        </div>
+
+        <ul class="legend">
+          <li><span class="color-circle" style="background:#E53935;"></span>0 a 3 → Nada provável</li>
+          <li><span class="color-circle" style="background:#FDD835;"></span>7 e 8 → Neutro</li>
+          <li><span class="color-circle" style="background:#43A047;"></span>9 e 10 → Extremamente provável</li>
+        </ul>
+
+        <textarea name="nps_motivo" placeholder="O que te motivou a dar a nota anterior?"></textarea>
+      </div>
+
+      <!-- PERGUNTA 2 -->
+      <div class="question">
+        <label>2. Como você se sentiria se não tivesse mais o serviço da Action Day?</label>
+
+        <div class="options">
+          <label><input type="radio" name="sentimento" value="Muito decepcionado"> Muito decepcionado</label>
+          <label><input type="radio" name="sentimento" value="Um pouco decepcionado"> Um pouco decepcionado</label>
+          <label><input type="radio" name="sentimento" value="Nada decepcionado"> Nada decepcionado</label>
+        </div>
+
+        <textarea name="sentimento_comentario" placeholder="Queremos te ouvir. Pode nos contar um pouco mais?"></textarea>
+      </div>
+
+      <button type="submit">Enviar Respostas</button>
+      <div id="feedbackMsg" class="feedback"></div>
+
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 <strong>Action Day Digital</strong> — Estratégia, Tecnologia e Crescimento 🚀</p>
+    <p>Todos os direitos reservados |
+      <a href="https://actiondaydigital.com.br" target="_blank" rel="noopener noreferrer">
+        actiondaydigital.com.br
+      </a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
