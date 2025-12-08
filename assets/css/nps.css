@@ -9,7 +9,6 @@ html, body {
 /* Evita que qualquer elemento estoure a largura */
 * {
   box-sizing: border-box !important;
-  max-width: 100%;
 }
 
 /* =========================================================
