@@ -199,8 +199,8 @@ h1 {
 ========================================================= */
 textarea {
   width: 100%;
-  padding: 14px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid #d2c9e3;
   font-size: 15px;
   resize: vertical;
