@@ -114,24 +114,24 @@ h1 {
    ESCALA NPS — CORES DA LEGENDA
 ========================================================= */
 
-/* 0–3: Vermelho */
+/* 0–6: Vermelho */
 .scale input[value="0"] + span,
 .scale input[value="1"] + span,
 .scale input[value="2"] + span,
-.scale input[value="3"] + span {
+.scale input[value="3"] + span
+.scale input[value="4"] + span,
+.scale input[value="5"] + span,
+.scale input[value="6"] + span {
   border-color: #E53935;
 }
 
-/* 4–7: Amarelo */
-.scale input[value="4"] + span,
-.scale input[value="5"] + span,
-.scale input[value="6"] + span,
-.scale input[value="7"] + span {
+/* 7–8: Amarelo */
+.scale input[value="7"] + span,
+.scale input[value="8"] + span {
   border-color: #FDD835;
 }
 
-/* 8–10: Verde */
-.scale input[value="8"] + span,
+/* 9–10: Verde */
 .scale input[value="9"] + span,
 .scale input[value="10"] + span {
   border-color: #43A047;
