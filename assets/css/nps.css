@@ -118,7 +118,7 @@ h1 {
 .scale input[value="0"] + span,
 .scale input[value="1"] + span,
 .scale input[value="2"] + span,
-.scale input[value="3"] + span
+.scale input[value="3"] + span,
 .scale input[value="4"] + span,
 .scale input[value="5"] + span,
 .scale input[value="6"] + span {
@@ -149,20 +149,20 @@ h1 {
 .scale input[value="0"]:checked + span,
 .scale input[value="1"]:checked + span,
 .scale input[value="2"]:checked + span,
-.scale input[value="3"]:checked + span {
+.scale input[value="3"]:checked + span,
+.scale input[value="4"]:checked + span,
+.scale input[value="5"]:checked + span,
+.scale input[value="6"]:checked + span {
   background: #E53935;
   color: #fff;
 }
 
-.scale input[value="4"]:checked + span,
-.scale input[value="5"]:checked + span,
-.scale input[value="6"]:checked + span,
-.scale input[value="7"]:checked + span {
+.scale input[value="7"]:checked + span, 
+.scale input[value="8"]:checked + span {
   background: #FDD835;
   color: #333;
 }
 
-.scale input[value="8"]:checked + span,
 .scale input[value="9"]:checked + span,
 .scale input[value="10"]:checked + span {
   background: #43A047;
