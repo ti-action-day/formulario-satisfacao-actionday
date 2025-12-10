@@ -1,4 +1,4 @@
-/* === FUNÇÃO PARA CAPTURAR PARÂMETROS === */
+/* === FUNÇÃO PARA PEGAR PARÂMETROS === */
 function getParam(param) {
   const params = new URLSearchParams(window.location.search);
   return params.get(param) || "";
@@ -7,21 +7,25 @@ function getParam(param) {
 let clienteID = "";
 let produtoID = "";
 
-/* === CAPTURA DE UTMs === */
+/* === CAPTURA C E P QUANDO A PÁGINA CARREGA === */
 window.addEventListener("DOMContentLoaded", () => {
   clienteID = getParam("c");
   produtoID = getParam("p");
 });
 
-/* === ENVIO DO FORM === */
+/* === ENVIO DO FORMULÁRIO === */
 document.getElementById("consultoriaForm").addEventListener("submit", async function (e) {
   e.preventDefault();
+
   const feedback = document.getElementById("feedbackMsg");
   feedback.textContent = "⏳ Enviando...";
   feedback.style.color = "#4B5563";
 
+  // Coleta todos os campos do formulário
   const formData = new FormData(this);
   const data = Object.fromEntries(formData.entries());
+
+  // Adiciona automaticamente os parâmetros da URL
   data.cliente = clienteID;
   data.produto = produtoID;
 
