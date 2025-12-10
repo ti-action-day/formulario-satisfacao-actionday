@@ -1,7 +1,21 @@
-/* === FUNÇÃO PARA PEGAR PARÂMETROS === */
-function getParam(param) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(param) || "";
+/* === FUNÇÃO ESPECIAL PARA PEGAR C E P DO JEITO QUE VEM NA URL === */
+function getCustomParams() {
+  const raw = window.location.search.replace("?", "");
+
+  let C = "";
+  let P = "";
+
+  // Caso venha assim: C=xxxxP=yyyy
+  if (raw.includes("C=") && raw.includes("P=")) {
+    const regex = /C=([^P]+)P=(.+)/;
+    const match = raw.match(regex);
+    if (match) {
+      C = match[1];
+      P = match[2];
+    }
+  }
+
+  return { C, P };
 }
 
 let clienteID = "";
@@ -9,8 +23,9 @@ let produtoID = "";
 
 /* === CAPTURA C E P QUANDO A PÁGINA CARREGA === */
 window.addEventListener("DOMContentLoaded", () => {
-  clienteID = getParam("c");
-  produtoID = getParam("p");
+  const params = getCustomParams();
+  clienteID = params.C;
+  produtoID = params.P;
 });
 
 /* === ENVIO DO FORMULÁRIO === */
@@ -21,11 +36,9 @@ document.getElementById("consultoriaForm").addEventListener("submit", async func
   feedback.textContent = "⏳ Enviando...";
   feedback.style.color = "#4B5563";
 
-  // Coleta todos os campos do formulário
   const formData = new FormData(this);
   const data = Object.fromEntries(formData.entries());
 
-  // Adiciona automaticamente os parâmetros da URL
   data.cliente = clienteID;
   data.produto = produtoID;
 
