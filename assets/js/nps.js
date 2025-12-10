@@ -26,7 +26,7 @@ document.getElementById("consultoriaForm").addEventListener("submit", async func
   data.produto = produtoID;
 
   try {
-    const res = await fetch("https://hook.us1.make.com/jhgz7ulsjpeqxejide9bmyeiu97ncbxs", {
+    const res = await fetch("https://hook.us1.make.com/1ynojqq57cdv56qxbnpel93g5ue8b1r3", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
