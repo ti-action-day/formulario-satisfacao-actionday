@@ -1,0 +1,313 @@
+/* ========= BASE ========= */
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; overflow-x:hidden; }
+body{
+  font-family: Arial, sans-serif;
+  background:#f7f1fb;
+  color:#2e2b2e;
+}
+
+/* ========= CONTAINER ========= */
+.container{
+  width:min(920px, 92vw);
+  margin:32px auto 18px;
+  background:#fff;
+  border:1px solid #e2d8f0;
+  border-radius:18px;
+  box-shadow:0 12px 32px rgba(0,0,0,.08);
+  padding:34px;
+}
+
+/* ========= TOPO ========= */
+.logo{ text-align:center; margin-bottom:32px; }
+.logo img{ width:350px; max-width:96%; height:auto; }
+
+h1{
+  text-align:center;
+  color:#592c82;
+  font-size:22px;
+  margin:14px 0 26px;
+  font-weight:900;
+}
+
+/* ========= PERGUNTAS ========= */
+.question{ margin-bottom:34px; }
+
+.q-title{
+  display:block;
+  text-align:left;
+  color:#592c82;
+  font-weight:800;
+  font-size:15px;
+  line-height:1.45;
+  max-width:780px;
+  margin:0 auto 12px;
+}
+
+/* =========================================================
+   ESCALA – DESKTOP (mantém distância original!)
+   left | (5 bolinhas) | right
+========================================================= */
+.scale-grid{
+  max-width:780px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: minmax(170px, 1fr) auto minmax(170px, 1fr);
+  align-items:center;
+  gap:14px;
+
+  /* variáveis usadas apenas para o ajuste vertical dos textos */
+  --num-size: 12px; /* mesmo .num */
+  --num-gap: 8px;  /* mesmo gap do .scale-item */
+}
+
+/* textos extremos (DISTÂNCIA horizontal original, sem mexer) */
+.scale-end{
+  font-size:13px;
+  font-weight:800;
+  color:#2e2b2e;
+  opacity:.9;
+  white-space:nowrap;
+}
+
+.scale-end.right{ text-align:right; }
+
+/* faixa com 5 itens */
+.scale-items{
+  display:grid;
+  grid-template-columns: repeat(5, 72px);
+  gap:14px;
+  justify-content:center;
+}
+
+.scale-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px; /* IMPORTANT: usado no cálculo do lift */
+  cursor:pointer;
+  user-select:none;
+}
+
+.scale-item input{ display:none; }
+
+.dot-ui{
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  border:2px solid #d2c9e3;
+  background:#fff;
+  transition:.18s ease;
+}
+
+.num{
+  font-size:12px; /* IMPORTANT: usado no cálculo do lift */
+  font-weight:900;
+  opacity:.70;
+}
+
+/* hover */
+.scale-item:hover .dot-ui{
+  transform: scale(1.04);
+  box-shadow:0 0 0 4px rgba(89,44,130,.10);
+}
+
+/* ===== CORES ===== */
+.csat input[value="1"] + .dot-ui{ border-color:#e53935; }
+.csat input[value="1"]:checked + .dot-ui{ background:#e53935; border-color:transparent; }
+
+.csat input[value="2"] + .dot-ui{ border-color:#fb8c00; }
+.csat input[value="2"]:checked + .dot-ui{ background:#fb8c00; border-color:transparent; }
+
+.csat input[value="3"] + .dot-ui{ border-color:#fdd835; }
+.csat input[value="3"]:checked + .dot-ui{ background:#fdd835; border-color:transparent; }
+
+.csat input[value="4"] + .dot-ui{ border-color:#7cb342; }
+.csat input[value="4"]:checked + .dot-ui{ background:#7cb342; border-color:transparent; }
+
+.csat input[value="5"] + .dot-ui{ border-color:#2e7d32; }
+.csat input[value="5"]:checked + .dot-ui{ background:#2e7d32; border-color:transparent; }
+
+/* efeito ao selecionar */
+.csat input:checked + .dot-ui{
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   ✅ AJUSTE QUE VOCÊ QUER (DESKTOP):
+   NÃO mexe na distância horizontal.
+   Só sobe o texto para alinhar no centro da bolinha.
+========================================================= */
+@media (min-width: 769px){
+  .scale-grid{
+    --lift: calc((var(--num-size) + var(--num-gap)) / 2);
+  }
+  .scale-end{
+    transform: translateY(calc(-1 * var(--lift)));
+  }
+}
+
+/* ========= TEXTAREA ========= */
+textarea{
+  width:100%;
+  max-width:780px;
+  display:block;
+  margin:0 auto;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #d2c9e3;
+  min-height:120px;
+  font-size:14px;
+  resize:vertical;
+}
+
+textarea:focus{
+  outline:none;
+  border-color:#592c82;
+  box-shadow:0 0 0 4px rgba(89,44,130,.10);
+}
+
+/* ========= Q5 CARDS ========= */
+.radio-list{
+  max-width:780px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.radio-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:12px;
+  border:2px solid #eee;
+  background:#fff;
+  cursor:pointer;
+  transition:.18s ease;
+}
+
+.radio-card input{
+  width:18px;
+  height:18px;
+  margin:0;
+  accent-color:#592c82;
+}
+
+.radio-card span{
+  font-weight:900;
+  color:#592c82;
+  font-size:14px;
+}
+
+.card-green{ border-color: rgba(46,125,50,.25); }
+.card-yellow{ border-color: rgba(251,192,45,.35); }
+.card-orange{ border-color: rgba(245,140,0,.30); }
+.card-red{ border-color: rgba(229,57,53,.25); }
+
+.radio-card:hover{
+  box-shadow:0 0 0 4px rgba(89,44,130,.06);
+}
+
+.card-green:has(input:checked){ background: rgba(46,125,50,.08); border-color: rgba(46,125,50,.50); }
+.card-yellow:has(input:checked){ background: rgba(251,192,45,.12); border-color: rgba(251,192,45,.60); }
+.card-orange:has(input:checked){ background: rgba(251,140,0,.10); border-color: rgba(251,140,0,.55); }
+.card-red:has(input:checked){ background: rgba(229,57,53,.08); border-color: rgba(229,57,53,.50); }
+
+/* ========= BOTÃO ========= */
+button{
+  width:100%;
+  max-width:520px;
+  margin:26px auto 0;
+  display:block;
+  background:#592c82;
+  color:#fff;
+  border:none;
+  padding:16px 18px;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.18s ease;
+}
+button:hover{ background:#442066; transform:scale(1.01); }
+button:disabled{ opacity:.75; cursor:not-allowed; transform:none; }
+
+.feedback{
+  text-align:center;
+  margin-top:12px;
+  font-weight:800;
+  color:#592c82;
+}
+
+/* ========= FOOTER ========= */
+.footer{
+  text-align:center;
+  padding:22px 10px;
+  margin-top:18px;
+  border-top:2px solid #e2d8f0;
+  background:#f3ecfa;
+  color:#592c82;
+  font-size:13px;
+}
+.footer a{ color:#592c82; font-weight:900; text-decoration:none; }
+.footer a:hover{ text-decoration:underline; }
+
+/* ========= MOBILE ========= */
+@media (max-width:768px){
+  .container{
+    width:100%;
+    margin:0;
+    border-radius:0;
+    padding:22px 14px;
+    box-shadow:none;
+  }
+
+  h1{ font-size:20px; }
+
+  .q-title{
+    max-width:100%;
+    margin:0 0 12px;
+  }
+
+  textarea{ max-width:100%; }
+  .radio-list{ max-width:100%; }
+  button{ max-width:100%; }
+
+  /* mobile: 2 linhas (left | right) e bolinhas abaixo */
+  .scale-grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left right"
+      "items items";
+    row-gap:10px;
+  }
+
+  .scale-end{
+    transform:none; /* no mobile não sobe texto */
+  }
+
+  .scale-end.left{
+    grid-area:left;
+    text-align:left;
+  }
+
+  .scale-end.right{
+    grid-area:right;
+    text-align:right;
+  }
+
+  .scale-items{
+    grid-area:items;
+    width:100%;
+    grid-template-columns: repeat(5, 1fr);
+    gap:10px;
+  }
+
+  .dot-ui{
+    width:44px;
+    height:44px;
+  }
+}
