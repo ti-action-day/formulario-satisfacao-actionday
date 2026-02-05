@@ -169,6 +169,10 @@ h1 {
   background: #c480c9;
 }
 
+.pill-5m {
+  background: #ffff33;
+}
+
 /* Se quiser criar mais tipos no futuro
 .pill-outra-coisa {
   background: #FB8C00;
