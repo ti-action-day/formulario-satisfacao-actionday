@@ -1,0 +1,235 @@
+html{overflow-y:scroll}
+body{
+  font-family:'Roboto',sans-serif;
+  background:#f8f6fb;
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  animation:fadeIn .6s ease-in
+}
+
+.container{
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  max-width:720px;
+  width:100%;
+  margin:40px auto 60px
+}
+
+.logo{text-align:center;margin-bottom:20px}
+.logo img{width:340px;max-width:90%}
+
+h1{
+  color:#592c82;
+  text-align:center;
+  font-size:22px;
+  margin-bottom:8px
+}
+.subtitle{
+  text-align:center;
+  color:#4a4a4a;
+  font-size:15px;
+  margin-bottom:22px
+}
+
+.question{
+  margin-bottom:34px;
+  padding-bottom:18px;
+  border-bottom:1px solid #f0e8fa
+}
+.question:last-of-type{border-bottom:none}
+
+.q-title{
+  font-weight:600;
+  color:#592c82;
+  margin-bottom:10px;
+  display:block;
+  line-height:1.35
+}
+
+textarea{
+  width:100%;
+  min-height:90px;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #d9cfe8;
+  margin-top:14px;
+  font-family:inherit
+}
+
+button{
+  background:#592c82;
+  color:#fff;
+  border:none;
+  padding:14px;
+  border-radius:10px;
+  font-size:16px;
+  width:100%;
+  max-width:400px;
+  margin:30px auto 0;
+  display:block;
+  cursor:pointer
+}
+button:hover{background:#452165}
+
+.feedback{
+  text-align:center;
+  margin-top:14px;
+  font-size:14px;
+  color:#592c82
+}
+
+.footer{
+  text-align:center;
+  padding:25px 10px;
+  font-size:14px;
+  color:#592c82
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* =========================================================
+   Rating 1–5 em círculos coloridos + legenda alinhada à esquerda (como no exemplo)
+   ========================================================= */
+:root{
+  --c1:#e53935;
+  --c2:#fb8c00;
+  --c3:#fdd835;
+  --c4:#66bb6a;
+  --c5:#2e7d32;
+}
+
+.rating-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:12px;
+}
+
+/* CÍRCULOS CENTRALIZADOS */
+.rating-scale{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:8px 6px;
+}
+
+.rating-scale input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.rating-circle{
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:#592c82;
+  background:#fff;
+  border:2px solid #d9cfe8;
+  cursor:pointer;
+  user-select:none;
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
+}
+.rating-circle:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 16px rgba(89,44,130,.10);
+}
+
+/* bordas por cor */
+.rating-circle.c1{border-color:var(--c1)}
+.rating-circle.c2{border-color:var(--c2)}
+.rating-circle.c3{border-color:var(--c3)}
+.rating-circle.c4{border-color:var(--c4)}
+.rating-circle.c5{border-color:var(--c5)}
+
+/* Selecionado: preenchido */
+#direcao_1:checked + label,
+#confianca_1:checked + label,
+#evolucao_1:checked + label,
+#comunicacao_1:checked + label,
+#valor_1:checked + label{background:var(--c1); color:#fff}
+
+#direcao_2:checked + label,
+#confianca_2:checked + label,
+#evolucao_2:checked + label,
+#comunicacao_2:checked + label,
+#valor_2:checked + label{background:var(--c2); color:#fff}
+
+#direcao_3:checked + label,
+#confianca_3:checked + label,
+#evolucao_3:checked + label,
+#comunicacao_3:checked + label,
+#valor_3:checked + label{background:var(--c3); color:#3b2a4b}
+
+#direcao_4:checked + label,
+#confianca_4:checked + label,
+#evolucao_4:checked + label,
+#comunicacao_4:checked + label,
+#valor_4:checked + label{background:var(--c4); color:#fff}
+
+#direcao_5:checked + label,
+#confianca_5:checked + label,
+#evolucao_5:checked + label,
+#comunicacao_5:checked + label,
+#valor_5:checked + label{background:var(--c5); color:#fff}
+
+/* foco teclado */
+.rating-scale input:focus + .rating-circle{
+  outline:3px solid rgba(89,44,130,.25);
+  outline-offset:3px;
+}
+
+/* ✅ LEGENDAS ALINHADAS À ESQUERDA (IGUAL AO EXEMPLO) */
+.rating-legend{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-weight:600;
+  font-size:14px;
+  color:#3b2a4b;
+
+  /* isso força a legenda a ter a mesma largura da pergunta
+     e começar do lado esquerdo do bloco */
+  align-self:stretch;
+  align-items:flex-start;
+  width:100%;
+  margin:0;          /* tira o "auto" que estava centralizando */
+  padding-left:0;    /* garante alinhamento com o texto */
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  display:inline-block;
+}
+
+.dot.c1{background:var(--c1)}
+.dot.c2{background:var(--c2)}
+.dot.c3{background:var(--c3)}
+.dot.c4{background:var(--c4)}
+.dot.c5{background:var(--c5)}
+
+@media(max-width:520px){
+  .rating-circle{width:40px;height:40px}
+  .rating-scale{gap:12px}
+}
