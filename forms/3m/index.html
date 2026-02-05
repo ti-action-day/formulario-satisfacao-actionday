@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa - Action Day</title>
+  <meta name="description" content="Pesquisa CSAT trimestral — Action Day Digital.">
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PJHGL693');
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=csat-tri-v2">
+</head>
+
+<body>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJHGL693"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<main class="container">
+  <div class="logo">
+    <img src="logo.png" alt="Logo Action Day Digital">
+  </div>
+
+  <h1>Pesquisa De Satisfação</h1>
+  <p class="subtitle">
+    Sua opinião é essencial para evoluirmos continuamente a parceria.
+    Leva menos de 3 minutos 💜
+  </p>
+
+  <!-- Legenda geral (igual exemplo: alinhada à esquerda) -->
+  <div class="question legend-box">
+    <label class="q-title">Como interpretar a escala:</label>
+    <ul class="legend">
+      <li><span class="color-circle c5"></span>5 Muito satisfeito</li>
+      <li><span class="color-circle c4"></span>4 Satisfeito</li>
+      <li><span class="color-circle c3"></span>3 Neutro</li>
+      <li><span class="color-circle c2"></span>2 Insatisfeito</li>
+      <li><span class="color-circle c1"></span>1 Muito insatisfeito</li>
+    </ul>
+  </div>
+
+  <form id="csatForm">
+
+    <!-- 1) CRIAÇÃO -->
+    <div class="question">
+      <label class="q-title">1. Setor de Criação — De 1 a 5, como você avalia o setor de criação até aqui?</label>
+
+      <!-- NOVO padrão -->
+      <div class="rating-wrap" role="group" aria-label="Nota do setor de criação (1 a 5)">
+        <div class="rating-scale">
+          <input id="criacao_1" type="radio" name="criacao_nota" value="1" required>
+          <label for="criacao_1" class="rating-circle c1">1</label>
+
+          <input id="criacao_2" type="radio" name="criacao_nota" value="2">
+          <label for="criacao_2" class="rating-circle c2">2</label>
+
+          <input id="criacao_3" type="radio" name="criacao_nota" value="3">
+          <label for="criacao_3" class="rating-circle c3">3</label>
+
+          <input id="criacao_4" type="radio" name="criacao_nota" value="4">
+          <label for="criacao_4" class="rating-circle c4">4</label>
+
+          <input id="criacao_5" type="radio" name="criacao_nota" value="5">
+          <label for="criacao_5" class="rating-circle c5">5</label>
+        </div>
+      </div>
+
+      <div class="checkbox-block" data-max="2" data-group="criacao">
+        <div class="checkbox-title">Pergunta 1 — O que você MAIS valoriza? <small>(até 2)</small></div>
+
+        <div class="check-grid">
+          <label class="checkline"><input type="checkbox" name="criacao_valoriza[]" value="Qualidade das criações"> Qualidade das criações</label>
+          <label class="checkline"><input type="checkbox" name="criacao_valoriza[]" value="Agilidade do setor de criação"> Agilidade do setor de criação</label>
+          <label class="checkline"><input type="checkbox" name="criacao_valoriza[]" value="Adaptação às minhas orientações"> Adaptação às minhas orientações</label>
+          <label class="checkline"><input type="checkbox" name="criacao_valoriza[]" value="Quantidade das criações"> Quantidade das criações</label>
+          <label class="checkline"><input type="checkbox" name="criacao_valoriza[]" value="Estratégia aplicada às criações"> Estratégia aplicada às criações</label>
+        </div>
+
+        <div class="limit-note" data-note="criacao"></div>
+      </div>
+
+      <textarea name="criacao_comentario" placeholder="Há algo que você gostaria de destacar ou sugerir sobre o setor de criação? (opcional)"></textarea>
+    </div>
+
+    <!-- 2) TRÁFEGO -->
+    <div class="question">
+      <label class="q-title">2. Setor de Tráfego — De 1 a 5, como você avalia o setor de tráfego até aqui?</label>
+
+      <div class="rating-wrap" role="group" aria-label="Nota do setor de tráfego (1 a 5)">
+        <div class="rating-scale">
+          <input id="trafego_1" type="radio" name="trafego_nota" value="1" required>
+          <label for="trafego_1" class="rating-circle c1">1</label>
+
+          <input id="trafego_2" type="radio" name="trafego_nota" value="2">
+          <label for="trafego_2" class="rating-circle c2">2</label>
+
+          <input id="trafego_3" type="radio" name="trafego_nota" value="3">
+          <label for="trafego_3" class="rating-circle c3">3</label>
+
+          <input id="trafego_4" type="radio" name="trafego_nota" value="4">
+          <label for="trafego_4" class="rating-circle c4">4</label>
+
+          <input id="trafego_5" type="radio" name="trafego_nota" value="5">
+          <label for="trafego_5" class="rating-circle c5">5</label>
+        </div>
+      </div>
+
+      <div class="checkbox-block" data-max="2" data-group="trafego">
+        <div class="checkbox-title">O que mais valorizou? <small>(até 2)</small></div>
+
+        <div class="check-grid">
+          <label class="checkline"><input type="checkbox" name="trafego_valoriza[]" value="Cuidado com a verba investida"> Cuidado com a verba investida</label>
+          <label class="checkline"><input type="checkbox" name="trafego_valoriza[]" value="Qualidade dos leads"> Qualidade dos leads</label>
+          <label class="checkline"><input type="checkbox" name="trafego_valoriza[]" value="Volume de leads"> Volume de leads</label>
+          <label class="checkline"><input type="checkbox" name="trafego_valoriza[]" value="Sugestões estratégicas de canais e plataformas"> Sugestões estratégicas de canais e plataformas</label>
+        </div>
+
+        <div class="limit-note" data-note="trafego"></div>
+      </div>
+
+      <textarea name="trafego_comentario" placeholder="Há algo que você gostaria de comentar sobre o setor de tráfego? (opcional)"></textarea>
+    </div>
+
+    <!-- 3) COMUNICAÇÃO -->
+    <div class="question">
+      <label class="q-title">3. Comunicação e Estratégia — De 1 a 5, como você avalia nossa comunicação e direcionamento estratégico?</label>
+
+      <div class="rating-wrap" role="group" aria-label="Nota de comunicação e estratégia (1 a 5)">
+        <div class="rating-scale">
+          <input id="comunicacao_1" type="radio" name="comunicacao_nota" value="1" required>
+          <label for="comunicacao_1" class="rating-circle c1">1</label>
+
+          <input id="comunicacao_2" type="radio" name="comunicacao_nota" value="2">
+          <label for="comunicacao_2" class="rating-circle c2">2</label>
+
+          <input id="comunicacao_3" type="radio" name="comunicacao_nota" value="3">
+          <label for="comunicacao_3" class="rating-circle c3">3</label>
+
+          <input id="comunicacao_4" type="radio" name="comunicacao_nota" value="4">
+          <label for="comunicacao_4" class="rating-circle c4">4</label>
+
+          <input id="comunicacao_5" type="radio" name="comunicacao_nota" value="5">
+          <label for="comunicacao_5" class="rating-circle c5">5</label>
+        </div>
+      </div>
+
+      <div class="checkbox-block" data-max="2" data-group="comunicacao">
+        <div class="checkbox-title">O que mais valorizou? <small>(até 2)</small></div>
+
+        <div class="check-grid">
+          <label class="checkline"><input type="checkbox" name="comunicacao_valoriza[]" value="Transparência sobre resultados"> Transparência sobre resultados</label>
+          <label class="checkline"><input type="checkbox" name="comunicacao_valoriza[]" value="Clareza dos dados"> Clareza dos dados</label>
+          <label class="checkline"><input type="checkbox" name="comunicacao_valoriza[]" value="Orientação estratégica"> Orientação estratégica</label>
+          <label class="checkline"><input type="checkbox" name="comunicacao_valoriza[]" value="Proatividade"> Proatividade</label>
+          <label class="checkline"><input type="checkbox" name="comunicacao_valoriza[]" value="Criativos e LPs validados"> Criativos e LPs validados</label>
+        </div>
+
+        <div class="limit-note" data-note="comunicacao"></div>
+      </div>
+
+      <textarea name="comunicacao_comentario" placeholder="Há algo que poderíamos melhorar na comunicação ou alinhamento estratégico? (opcional)"></textarea>
+    </div>
+
+    <!-- 4) COMERCIAL -->
+    <div class="question">
+      <label class="q-title">4. Setor Comercial — De 1 a 5, como você avalia o suporte do setor comercial até aqui?</label>
+
+      <div class="rating-wrap" role="group" aria-label="Nota do setor comercial (1 a 5)">
+        <div class="rating-scale">
+          <input id="comercial_1" type="radio" name="comercial_nota" value="1" required>
+          <label for="comercial_1" class="rating-circle c1">1</label>
+
+          <input id="comercial_2" type="radio" name="comercial_nota" value="2">
+          <label for="comercial_2" class="rating-circle c2">2</label>
+
+          <input id="comercial_3" type="radio" name="comercial_nota" value="3">
+          <label for="comercial_3" class="rating-circle c3">3</label>
+
+          <input id="comercial_4" type="radio" name="comercial_nota" value="4">
+          <label for="comercial_4" class="rating-circle c4">4</label>
+
+          <input id="comercial_5" type="radio" name="comercial_nota" value="5">
+          <label for="comercial_5" class="rating-circle c5">5</label>
+        </div>
+      </div>
+
+      <div class="checkbox-block" data-max="2" data-group="comercial">
+        <div class="checkbox-title">O que mais valorizou? <small>(até 2)</small></div>
+
+        <div class="check-grid">
+          <label class="checkline"><input type="checkbox" name="comercial_valoriza[]" value="Treinamentos"> Treinamentos</label>
+          <label class="checkline"><input type="checkbox" name="comercial_valoriza[]" value="Organização do CRM"> Organização do CRM</label>
+          <label class="checkline"><input type="checkbox" name="comercial_valoriza[]" value="Orientação à equipe"> Orientação à equipe</label>
+          <label class="checkline"><input type="checkbox" name="comercial_valoriza[]" value="Técnicas de venda"> Técnicas de venda</label>
+          <label class="checkline"><input type="checkbox" name="comercial_valoriza[]" value="Estrutura de equipe"> Estrutura de equipe</label>
+        </div>
+
+        <div class="limit-note" data-note="comercial"></div>
+      </div>
+
+      <textarea name="comercial_comentario" placeholder="O que mais faria diferença para o seu time comercial neste momento? (recomendado)"></textarea>
+    </div>
+
+    <button type="submit">Enviar respostas</button>
+    <div id="feedbackMsg" class="feedback"></div>
+  </form>
+</main>
+
+<footer class="footer">
+  <p>© 2026 <strong>Action Day Digital</strong> — Estratégia, Tecnologia e Crescimento 🚀</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
