@@ -1,0 +1,317 @@
+/* === BASE === */
+html{overflow-y:scroll}
+body{
+  font-family:'Roboto',sans-serif;
+  background:#f8f6fb;
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  animation:fadeIn .6s ease-in
+}
+
+.container{
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  max-width:720px;
+  width:100%;
+  margin:40px auto 60px
+}
+
+.logo{text-align:center;margin-bottom:20px}
+.logo img{width:340px;max-width:90%}
+
+h1{
+  color:#592c82;
+  text-align:center;
+  font-size:22px;
+  margin-bottom:8px
+}
+.subtitle{
+  text-align:center;
+  color:#4a4a4a;
+  font-size:15px;
+  margin-bottom:22px
+}
+
+.question{
+  margin-bottom:34px;
+  padding-bottom:18px;
+  border-bottom:1px solid #f0e8fa
+}
+.question:last-of-type{border-bottom:none}
+
+/* título da pergunta */
+.q-title,
+.question label{
+  font-weight:600;
+  color:#592c82;
+  margin-bottom:10px;
+  display:block;
+  line-height:1.35
+}
+
+/* ==========================================
+   NOVO PADRÃO: CÍRCULOS 1–5 (premium)
+   ========================================== */
+:root{
+  --c1:#E53935;
+  --c2:#FB8C00;
+  --c3:#FDD835;
+  --c4:#81C784;
+  --c5:#43A047;
+}
+
+/* wrapper das notas */
+.rating-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:12px;
+}
+
+/* círculos centralizados */
+.rating-scale{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  padding:8px 6px;
+  line-height:1; /* evita herança ruim */
+}
+
+/* esconde radios */
+.rating-scale input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+/* o círculo em si (label clicável) */
+.rating-scale label.rating-circle{
+  width:46px;
+  height:46px;
+  border-radius:999px;
+
+  /* BLINDAGEM: garante número no centro */
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+  padding:0 !important;
+  line-height:1 !important;
+
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:0;
+
+  color:#592c82;
+  background:#fff;
+  border:2px solid #d9cfe8;
+
+  cursor:pointer;
+  user-select:none;
+
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
+}
+
+.rating-scale label.rating-circle:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 16px rgba(89,44,130,.10);
+}
+
+/* bordas por cor */
+.rating-scale label.rating-circle.c1{border-color:var(--c1)}
+.rating-scale label.rating-circle.c2{border-color:var(--c2)}
+.rating-scale label.rating-circle.c3{border-color:var(--c3)}
+.rating-scale label.rating-circle.c4{border-color:var(--c4)}
+.rating-scale label.rating-circle.c5{border-color:var(--c5)}
+
+/* Selecionado: preenchido (por IDs deste formulário) */
+#criacao_1:checked + label,
+#trafego_1:checked + label,
+#comunicacao_1:checked + label,
+#comercial_1:checked + label{
+  background:var(--c1);
+  color:#fff;
+}
+
+#criacao_2:checked + label,
+#trafego_2:checked + label,
+#comunicacao_2:checked + label,
+#comercial_2:checked + label{
+  background:var(--c2);
+  color:#fff;
+}
+
+#criacao_3:checked + label,
+#trafego_3:checked + label,
+#comunicacao_3:checked + label,
+#comercial_3:checked + label{
+  background:var(--c3);
+  color:#333;
+}
+
+#criacao_4:checked + label,
+#trafego_4:checked + label,
+#comunicacao_4:checked + label,
+#comercial_4:checked + label{
+  background:var(--c4);
+  color:#fff;
+}
+
+#criacao_5:checked + label,
+#trafego_5:checked + label,
+#comunicacao_5:checked + label,
+#comercial_5:checked + label{
+  background:var(--c5);
+  color:#fff;
+}
+
+/* acessibilidade */
+.rating-scale input:focus + label.rating-circle{
+  outline:3px solid rgba(89,44,130,.25);
+  outline-offset:3px;
+}
+
+/* ==========================================
+   LEGENDA (geral) alinhada à esquerda
+   ========================================== */
+.legend-box{
+  background:#fbf9fe;
+  border:1px solid #eee6f6;
+  border-radius:12px;
+  padding:14px;
+}
+
+.legend{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0;
+  font-size:14px
+}
+.legend li{
+  display:flex;
+  align-items:center;
+  margin-bottom:6px;
+  color:#3b2a4b;
+  font-weight:600
+}
+.color-circle{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  margin-right:10px
+}
+
+.color-circle.c1{background:var(--c1)}
+.color-circle.c2{background:var(--c2)}
+.color-circle.c3{background:var(--c3)}
+.color-circle.c4{background:var(--c4)}
+.color-circle.c5{background:var(--c5)}
+
+/* ==========================================
+   Checkbox cards
+   ========================================== */
+.checkbox-block{
+  background:#fbf9fe;
+  border:1px solid #eee6f6;
+  border-radius:12px;
+  padding:14px;
+  margin-top:14px
+}
+.checkbox-title{
+  font-weight:600;
+  color:#592c82;
+  margin-bottom:12px
+}
+.check-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+@media(max-width:768px){
+  .check-grid{grid-template-columns:1fr}
+}
+.checkline{
+  display:flex;
+  gap:10px;
+  padding:10px 12px;
+  border:1px solid #eee6f6;
+  border-radius:10px;
+  cursor:pointer;
+  background:#fff;
+  transition:.2s
+}
+.checkline:hover{
+  box-shadow:0 6px 14px rgba(89,44,130,.08);
+  border-color:#d9cfe8
+}
+.checkline:has(input:checked){
+  border-color:#592c82;
+  box-shadow:0 6px 16px rgba(89,44,130,.12)
+}
+.limit-note{
+  font-size:13px;
+  margin-top:12px;
+  color:#6b5a7a
+}
+
+/* ==========================================
+   Textarea
+   ========================================== */
+textarea{
+  width:100%;
+  min-height:90px;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #d9cfe8;
+  margin-top:12px;
+  font-family:inherit
+}
+
+/* ==========================================
+   Botão / feedback / rodapé
+   ========================================== */
+button{
+  background:#592c82;
+  color:#fff;
+  border:none;
+  padding:14px;
+  border-radius:8px;
+  font-size:16px;
+  width:100%;
+  max-width:400px;
+  margin:30px auto 0;
+  display:block;
+  cursor:pointer
+}
+button:hover{background:#452165}
+
+.feedback{
+  text-align:center;
+  margin-top:14px;
+  font-size:14px;
+  color:#592c82
+}
+
+.footer{
+  text-align:center;
+  padding:25px 10px;
+  font-size:14px;
+  color:#592c82
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:520px){
+  .rating-scale{gap:12px}
+  .rating-scale label.rating-circle{width:40px;height:40px;font-size:15px}
+}
