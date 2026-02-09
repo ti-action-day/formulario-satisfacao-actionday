@@ -27,7 +27,7 @@ document.getElementById("csatForm").addEventListener("submit", async (e)=>{
   data.produto = produtoID;
 
   try{
-    const r = await fetch("https://hook.us1.make.com/jhgz7ulsjpeqxejide9bmyeiu97ncbxs", {
+    const r = await fetch("https://hook.us1.make.com/upjaqm9dzmo0bol6heua3gsjg5uqv4f6", {
       method: "POST",
       headers: {"Content-Type":"application/json"},
       body: JSON.stringify(data)
