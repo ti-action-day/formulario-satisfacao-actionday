@@ -51,7 +51,7 @@ document.getElementById("csatForm").addEventListener("submit",async e=>{
   data.produto=produtoID;
 
   try{
-    const r=await fetch("https://hook.us1.make.com/jhgz7ulsjpeqxejide9bmyeiu97ncbxs",{
+    const r=await fetch("https://hook.us1.make.com/1vwb1hdrdhnc1fun6vgpkhdssos5a0vi",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(data)
