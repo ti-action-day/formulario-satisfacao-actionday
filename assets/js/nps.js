@@ -5,13 +5,27 @@ function getCustomParams() {
   let C = "";
   let P = "";
 
-  // Caso venha assim: C=xxxxP=yyyy
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("C")) {
+    return {
+      C: params.get("C") || "",
+      P: params.get("P") || ""
+    };
+  }
+
   if (raw.includes("C=") && raw.includes("P=")) {
     const regex = /C=([^P]+)P=(.+)/;
     const match = raw.match(regex);
     if (match) {
       C = match[1];
       P = match[2];
+    }
+  }
+
+  else if (raw.includes("C=")) {
+    const match = raw.match(/C=(.+)/);
+    if (match) {
+      C = match[1];
     }
   }
 
