@@ -1,4 +1,4 @@
-/* === FUNÇÃO ESPECIAL PARA PEGAR C E P DO JEITO QUE VEM NA URL === */
+/* === FUNÇÃO PARA PEGAR C E P DA URL (ROBUSTA) === */
 function getCustomParams() {
   const raw = window.location.search.replace("?", "");
 
@@ -6,13 +6,19 @@ function getCustomParams() {
   let P = "";
 
   const params = new URLSearchParams(window.location.search);
-  if (params.get("C")) {
+
+  // 🔹 1. Padrão normal (?c=...&p=...)
+  const CParam = params.get("c") || params.get("C") || "";
+  const PParam = params.get("p") || params.get("P") || "";
+
+  if (CParam) {
     return {
-      C: params.get("C") || "",
-      P: params.get("P") || ""
+      C: CParam,
+      P: PParam
     };
   }
 
+  // 🔹 2. Formato legado (C=xxxP=yyy)
   if (raw.includes("C=") && raw.includes("P=")) {
     const regex = /C=([^P]+)P=(.+)/;
     const match = raw.match(regex);
@@ -22,6 +28,7 @@ function getCustomParams() {
     }
   }
 
+  // 🔹 3. Só C no formato legado (C=xxx)
   else if (raw.includes("C=")) {
     const match = raw.match(/C=(.+)/);
     if (match) {
@@ -40,6 +47,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const params = getCustomParams();
   clienteID = params.C;
   produtoID = params.P;
+
+  console.log("Cliente:", clienteID);
+  console.log("Produto:", produtoID);
 });
 
 /* === ENVIO DO FORMULÁRIO === */
