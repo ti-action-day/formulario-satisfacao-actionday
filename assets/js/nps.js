@@ -1,48 +1,43 @@
-/* === FUNÇÃO PARA PEGAR C E P DA URL (ROBUSTA) === */
+/* === FUNÇÃO PARA PEGAR C E P DA URL === */
 function getCustomParams() {
-  const raw = window.location.search.replace("?", "");
+  const raw = window.location.search.replace(/^\?/, "");
 
   let C = "";
   let P = "";
 
   const params = new URLSearchParams(window.location.search);
 
-  // 🔹 1. Padrão normal (?c=...&p=...)
+  // 1. Formato normal (?c=...&p=...)
   const CParam = params.get("c") || params.get("C") || "";
   const PParam = params.get("p") || params.get("P") || "";
 
-  if (CParam) {
+  if (CParam || PParam) {
+    return { C: CParam, P: PParam };
+  }
+
+  // 2. Formato legado (C=xxxP=yyy)
+  const legacyBothMatch = raw.match(/(?:^|&)c=([^&]+?)p=(.+)$/i);
+  if (legacyBothMatch) {
     return {
-      C: CParam,
-      P: PParam
+      C: legacyBothMatch[1],
+      P: legacyBothMatch[2]
     };
   }
 
-  // 🔹 2. Formato legado (C=xxxP=yyy)
-  if (raw.includes("C=") && raw.includes("P=")) {
-    const regex = /C=([^P]+)P=(.+)/;
-    const match = raw.match(regex);
-    if (match) {
-      C = match[1];
-      P = match[2];
-    }
-  }
-
-  // 🔹 3. Só C no formato legado (C=xxx)
-  else if (raw.includes("C=")) {
-    const match = raw.match(/C=(.+)/);
-    if (match) {
-      C = match[1];
-    }
+  // 3. Só C (C=xxx)
+  const legacyCMatch = raw.match(/(?:^|&)c=(.+)$/i);
+  if (legacyCMatch) {
+    C = legacyCMatch[1];
   }
 
   return { C, P };
 }
 
+/* === VARIÁVEIS GLOBAIS === */
 let clienteID = "";
 let produtoID = "";
 
-/* === CAPTURA C E P QUANDO A PÁGINA CARREGA === */
+/* === CAPTURA AO CARREGAR === */
 window.addEventListener("DOMContentLoaded", () => {
   const params = getCustomParams();
   clienteID = params.C;
@@ -52,11 +47,27 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log("Produto:", produtoID);
 });
 
-/* === ENVIO DO FORMULÁRIO === */
+/* === SUBMIT DO FORM === */
 document.getElementById("consultoriaForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const feedback = document.getElementById("feedbackMsg");
+
+  // 🔴 VALIDAÇÃO NPS
+  const npsSelecionado = document.querySelector('input[name="nps"]:checked');
+
+  if (!npsSelecionado) {
+    feedback.textContent = "⚠️ Por favor, selecione uma nota de 0 a 10 antes de enviar.";
+    feedback.style.color = "#dc2626";
+
+    document.querySelector(".nps-scale").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    return;
+  }
+
   feedback.textContent = "⏳ Enviando...";
   feedback.style.color = "#4B5563";
 
