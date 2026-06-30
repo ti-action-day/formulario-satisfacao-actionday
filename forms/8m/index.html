@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisa de Satisfação - Action Day</title>
+<style>
+  :root{
+    --purple:#6C2BD9;
+    --purple-dark:#4B1A99;
+    --purple-light:#F4EEFF;
+    --text:#2B2240;
+    --muted:#6B6478;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:linear-gradient(180deg,var(--purple-light) 0%,#FFFFFF 35%);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 16px;
+  }
+  .card{
+    background:#fff;
+    border-radius:16px;
+    max-width:600px;
+    width:100%;
+    padding:48px 56px;
+    box-shadow:0 10px 40px rgba(108,43,217,0.12);
+  }
+  .logo{
+    display:block;
+    margin:0 auto 32px;
+    max-width:280px;
+  }
+  h1{
+    text-align:center;
+    font-size:26px;
+    margin:0 0 12px;
+    color:var(--purple-dark);
+  }
+  .subtitle{
+    text-align:center;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.6;
+    margin:0 0 40px;
+  }
+  .question{
+    font-size:16px;
+    font-weight:600;
+    line-height:1.5;
+    margin-bottom:20px;
+  }
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:40px;
+  }
+  .option{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border:1px solid #E4DCF7;
+    border-radius:10px;
+    padding:16px 18px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .option:hover{
+    border-color:var(--purple);
+    background:var(--purple-light);
+  }
+  .option input{
+    accent-color:var(--purple);
+    width:18px;
+    height:18px;
+  }
+  .option.selected{
+    border-color:var(--purple);
+    background:var(--purple-light);
+    border-width:2px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  }
+  textarea{
+    width:100%;
+    min-height:120px;
+    border:1px solid #E4DCF7;
+    border-radius:10px;
+    padding:16px 18px;
+    font-family:inherit;
+    font-size:14px;
+    resize:vertical;
+    margin-bottom:40px;
+  }
+  textarea:focus, .option input:focus{
+    outline:2px solid var(--purple);
+  }
+  button{
+    width:100%;
+    background:var(--purple);
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:14px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  button:hover{
+    background:var(--purple-dark);
+  }
+  button:disabled{
+    background:#C9BCEA;
+    cursor:not-allowed;
+  }
+  .footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:28px;
+  }
+  .footer a{
+    color:var(--purple);
+    text-decoration:none;
+  }
+  .success{
+    text-align:center;
+    padding:40px 0;
+  }
+  .success h2{
+    color:var(--purple-dark);
+  }
+  .hidden{display:none;}
+
+  @media (max-width: 600px){
+    body{
+      padding:20px 12px;
+      align-items:flex-start;
+    }
+    .card{
+      padding:28px 20px;
+      border-radius:14px;
+    }
+    .logo{
+      max-width:200px;
+      margin-bottom:20px;
+    }
+    h1{
+      font-size:21px;
+    }
+    .subtitle{
+      font-size:14px;
+      margin-bottom:28px;
+    }
+    .question{
+      font-size:15px;
+      margin-bottom:14px;
+    }
+    .options{
+      gap:10px;
+      margin-bottom:28px;
+    }
+    .option{
+      padding:14px;
+      font-size:14px;
+    }
+    textarea{
+      margin-bottom:28px;
+      min-height:100px;
+    }
+    button{
+      padding:14px;
+      font-size:15px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="logo.png" alt="Logo Action Day Digital">
+
+    <div id="formView">
+      <h1>Pesquisa de Satisfação</h1>
+      <p class="subtitle">Sua opinião é essencial para continuarmos melhorando e gerando mais resultados para o seu negócio 💜</p>
+
+      <div class="question">1. Como você se sentiria, se não tivesse mais o serviço da Action Day?</div>
+      <div class="options" id="optionsGroup">
+        <label class="option">
+          <input type="radio" name="sentimento" value="muito_decepcionado">
+          Muito decepcionado
+        </label>
+        <label class="option">
+          <input type="radio" name="sentimento" value="pouco_decepcionado">
+          Um pouco decepcionado
+        </label>
+        <label class="option">
+          <input type="radio" name="sentimento" value="nada_decepcionado">
+          Nada decepcionado
+        </label>
+      </div>
+
+      <button id="submitBtn" disabled>Enviar Resposta</button>
+    </div>
+
+    <div id="successView" class="success hidden">
+      <h2>Obrigado pela sua resposta! 💜</h2>
+      <p class="subtitle">Sua opinião foi registrada com sucesso.</p>
+    </div>
+
+    <div class="footer">
+      © 2026 <strong>Action Day Digital</strong> — Estratégia, Tecnologia e Crescimento 🚀<br>
+      Todos os direitos reservados | <a href="https://actiondaydigital.com.br" target="_blank">actiondaydigital.com.br</a>
+    </div>
+  </div>
+
+<script>
+  const WEBHOOK_URL = 'https://hook.us1.make.com/iirdalwx3a7edhlxd6uoud589jrobp4a';
+
+  function getParam(name){
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name) || '';
+  }
+
+  const paramP = getParam('p');
+  const paramC = getParam('c');
+
+  const radios = document.querySelectorAll('input[name="sentimento"]');
+  const options = document.querySelectorAll('.option');
+  const btn = document.getElementById('submitBtn');
+
+  function checkEnable(){
+    const selected = document.querySelector('input[name="sentimento"]:checked');
+    btn.disabled = !selected;
+  }
+
+  radios.forEach((r, i) => {
+    r.addEventListener('change', () => {
+      options.forEach(o => o.classList.remove('selected'));
+      options[i].classList.add('selected');
+      checkEnable();
+    });
+  });
+
+  btn.addEventListener('click', async () => {
+    const selected = document.querySelector('input[name="sentimento"]:checked');
+    if(!selected) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const payload = {
+      sentimento: selected.value,
+      p: paramP,
+      c: paramC,
+      data_envio: new Date().toISOString()
+    };
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.error('Erro ao enviar resposta:', err);
+    }
+
+    document.getElementById('formView').classList.add('hidden');
+    document.getElementById('successView').classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
